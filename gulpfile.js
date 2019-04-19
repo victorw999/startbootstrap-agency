@@ -50,7 +50,7 @@ gulp.task('vendor', function() {
     ])
     .pipe(gulp.dest('./vendor/jquery-easing'))
 
-});
+}); // gulp.task
 
 // Compile SCSS
 gulp.task('css:compile', function() {
