@@ -172,6 +172,7 @@ header.masthead {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
+  height: 120vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
