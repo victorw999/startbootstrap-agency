@@ -1,0 +1,30 @@
+/* scrolldemo_boxheight */
+$sd_height: 350px;
+
+#scrolldemo{
+  .wrapper {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: $sd_height;
+    max-height: $sd_height;
+  }
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px; width:100%;
+    max-height: $sd_height; height:$sd_height;
+    background-size: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    transition: 3s;
+    background-position: top;
+  }
+
+  .box:hover {
+    background-position: bottom;
+  }
+
+}// #scrolldemo
