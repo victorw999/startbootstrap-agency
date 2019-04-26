@@ -226,12 +226,12 @@ header.masthead .intro-text .intro-heading {
   text-transform: none;
 }
 
-#portfolio .portfolio-item, #scrolldemo .portfolio-item {
+#portfolio .portfolio-item, #scrolldemo .portfolio-item, #filter_gallery .portfolio-item {
   right: 0;
   margin: 0 0 15px;
 }
 
-#portfolio .portfolio-item .portfolio-link, #scrolldemo .portfolio-item .portfolio-link {
+#portfolio .portfolio-item .portfolio-link, #scrolldemo .portfolio-item .portfolio-link, #filter_gallery .portfolio-item .portfolio-link {
   position: relative;
   display: block;
   max-width: 400px;
@@ -239,7 +239,7 @@ header.masthead .intro-text .intro-heading {
   cursor: pointer;
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover {
+#portfolio .portfolio-item .portfolio-link .portfolio-hover, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover, #filter_gallery .portfolio-item .portfolio-link .portfolio-hover {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -250,11 +250,11 @@ header.masthead .intro-text .intro-heading {
   background: rgba(19, 126, 192, 0.9);
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover:hover {
+#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover:hover, #filter_gallery .portfolio-item .portfolio-link .portfolio-hover:hover {
   opacity: 1;
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content, #filter_gallery .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -265,17 +265,18 @@ header.masthead .intro-text .intro-heading {
   color: white;
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i, #filter_gallery .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
   margin-top: -12px;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4, #scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
-#scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
+#scrolldemo .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4, #filter_gallery .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3,
+#filter_gallery .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
   margin: 0;
 }
 
-#portfolio .portfolio-item .portfolio-caption, #scrolldemo .portfolio-item .portfolio-caption {
+#portfolio .portfolio-item .portfolio-caption, #scrolldemo .portfolio-item .portfolio-caption, #filter_gallery .portfolio-item .portfolio-caption {
   max-width: 400px;
   margin: 0 auto;
   padding: 25px;
@@ -283,19 +284,19 @@ header.masthead .intro-text .intro-heading {
   background-color: #fff;
 }
 
-#portfolio .portfolio-item .portfolio-caption h4, #scrolldemo .portfolio-item .portfolio-caption h4 {
+#portfolio .portfolio-item .portfolio-caption h4, #scrolldemo .portfolio-item .portfolio-caption h4, #filter_gallery .portfolio-item .portfolio-caption h4 {
   margin: 0;
   text-transform: none;
 }
 
-#portfolio .portfolio-item .portfolio-caption p, #scrolldemo .portfolio-item .portfolio-caption p {
+#portfolio .portfolio-item .portfolio-caption p, #scrolldemo .portfolio-item .portfolio-caption p, #filter_gallery .portfolio-item .portfolio-caption p {
   font-size: 16px;
   font-style: italic;
   margin: 0;
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#portfolio *, #scrolldemo * {
+#portfolio *, #scrolldemo *, #filter_gallery * {
   z-index: 2;
 }
 
@@ -717,10 +718,78 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-size: cover;
   border: 5px solid #fff;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
-  transition: 3s;
+  transition: 4s;
   background-position: top;
 }
 
 #scrolldemo .box:hover {
   background-position: bottom;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+section#filter_gallery .animated.fade-in {
+  animation: fadeIn 3.75s ease both;
+}
+
+section#filter_gallery .mix_controls .control_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+section#filter_gallery .mix_controls .float-bar {
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  position: absolute;
+  margin: auto 0;
+  position: absolute;
+  overflow: hidden;
+  height: 25px;
+  border-radius: 1px;
+  background: #e31b6d;
+  transition: all 0.5s ease-in-out;
+}
+
+@media screen and (min-width: 600px) {
+  section#filter_gallery .mix_controls .float-bar {
+    height: 30px;
+  }
+}
+
+section#filter_gallery .mix_controls.filter-wrap {
+  position: relative;
+}
+
+section#filter_gallery .mix_controls .filter {
+  font-size: 6pt;
+  font-weight: 600;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+@media screen and (min-width: 960px) {
+  section#filter_gallery .mix_controls .filter {
+    font-size: 13pt;
+    padding: 0 40px;
+    margin: 0 25px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  section#filter_gallery .mix_controls .filter {
+    font-size: 11pt;
+    margin: 0 15px;
+    padding: 0 30px;
+  }
 }
