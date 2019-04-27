@@ -735,42 +735,49 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   }
 }
 
-section#filter_gallery .animated.fade-in {
-  animation: fadeIn 3.75s ease both;
-}
-
-section#filter_gallery .mix_controls .control_menu {
+section#filter_gallery .flex {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-section#filter_gallery .mix_controls .float-bar {
+section#filter_gallery .flex.row {
+  flex-direction: row;
+}
+
+@media screen and (min-width: 960px) {
+  section#filter_gallery .animated.fade-in {
+    animation: fadeIn 0.75s ease both;
+  }
+  section#filter_gallery .waypoint {
+    opacity: 0;
+  }
+}
+
+section#filter_gallery .filter-wrap {
+  position: relative;
+}
+
+section#filter_gallery .filter-wrap .float-bar {
   top: 0;
   bottom: 0;
-  left: 30px;
-  position: absolute;
   margin: auto 0;
   position: absolute;
   overflow: hidden;
-  height: 25px;
   border-radius: 1px;
   background: #e31b6d;
+  /* red */
   transition: all 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 600px) {
-  section#filter_gallery .mix_controls .float-bar {
+  section#filter_gallery .filter-wrap .float-bar {
     height: 30px;
   }
 }
 
-section#filter_gallery .mix_controls.filter-wrap {
-  position: relative;
-}
-
-section#filter_gallery .mix_controls .filter {
+section#filter_gallery .filter-wrap .filter {
   font-size: 6pt;
   font-weight: 600;
   padding: 0 20px;
@@ -779,7 +786,7 @@ section#filter_gallery .mix_controls .filter {
 }
 
 @media screen and (min-width: 960px) {
-  section#filter_gallery .mix_controls .filter {
+  section#filter_gallery .filter-wrap .filter {
     font-size: 13pt;
     padding: 0 40px;
     margin: 0 25px;
@@ -787,7 +794,7 @@ section#filter_gallery .mix_controls .filter {
 }
 
 @media screen and (min-width: 600px) {
-  section#filter_gallery .mix_controls .filter {
+  section#filter_gallery .filter-wrap .filter {
     font-size: 11pt;
     margin: 0 15px;
     padding: 0 30px;

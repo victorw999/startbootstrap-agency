@@ -47,4 +47,8 @@
     $(".navbar").removeClass("d-none");
   })
 
+  //vicmod: mixitup gallery
+  var containerEl = document.querySelector('.mixitup_content');
+  var mixer = mixitup(containerEl);
+
 })(jQuery); // End of use strict
