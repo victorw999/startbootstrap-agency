@@ -702,8 +702,8 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   margin: 0;
   padding: 0;
   position: relative;
-  height: 350px;
-  max-height: 350px;
+  height: 262px;
+  max-height: 262px;
 }
 
 #scrolldemo .box {
@@ -713,12 +713,12 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   transform: translate(-50%, -50%);
   max-width: 400px;
   width: 100%;
-  max-height: 350px;
-  height: 350px;
+  max-height: 262px;
+  height: 262px;
   background-size: cover;
   border: 5px solid #fff;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
-  transition: 4s;
+  transition: 5s;
   background-position: top;
 }
 
@@ -784,4 +784,87 @@ section#filter_gallery .filter-wrap .filter {
     margin: 0 15px;
     padding: 0 30px;
   }
+}
+
+section#filter_gallery #menu2.wrapper {
+  position: relative;
+  height: 10rem;
+}
+
+section#filter_gallery #menu2.wrapper p {
+  margin: 0;
+}
+
+section#filter_gallery #menu2 ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+section#filter_gallery #menu2 ul li {
+  list-style: none;
+  width: 150px;
+}
+
+section#filter_gallery #menu2 ul li.active {
+  transition: 0.5s;
+}
+
+section#filter_gallery #menu2 ul li.active a {
+  color: #262626;
+  color: white;
+}
+
+section#filter_gallery #menu2 ul li a {
+  outline: 0;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+}
+
+section#filter_gallery #menu2 ul .active:nth-child(1) ~ .slide {
+  left: 0px;
+  opacity: 1;
+}
+
+section#filter_gallery #menu2 ul .active:nth-child(2) ~ .slide {
+  left: 150px;
+  opacity: 1;
+}
+
+section#filter_gallery #menu2 ul .active:nth-child(3) ~ .slide {
+  left: 300px;
+  opacity: 1;
+}
+
+section#filter_gallery #menu2 ul .active:nth-child(4) ~ .slide {
+  left: 450px;
+  opacity: 1;
+}
+
+section#filter_gallery #menu2 ul .active:nth-child(5) ~ .slide {
+  left: 600px;
+  opacity: 1;
+}
+
+section#filter_gallery #menu2 .slide {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #137ec0;
+  background-color: #137ec0;
+  z-index: -1;
+  transition: 0.5s;
+  opacity: 0;
 }

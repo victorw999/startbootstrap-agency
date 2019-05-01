@@ -1,7 +1,10 @@
 /* scrolldemo_boxheight */
-$sd_height: 350px;
 
 #scrolldemo{
+  $box_max_height: 400px;  
+  $sd_height: 262px; //$sd_height: $box_max_height / 1.33;
+  $scroll_duration: 5s;
+
   .wrapper {
     margin: 0;
     padding: 0;
@@ -14,12 +17,12 @@ $sd_height: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 400px; width:100%;
+    max-width: $box_max_height; width:100%;
     max-height: $sd_height; height:$sd_height;
     background-size: cover;
     border: 5px solid #fff;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
-    transition: 4s;
+    transition: $scroll_duration;
     background-position: top;
   }
 

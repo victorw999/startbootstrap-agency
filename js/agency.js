@@ -47,8 +47,20 @@
     $(".navbar").removeClass("d-none");
   })
 
-  //vicmod: mixitup gallery
+
+  //===========================================
+  // vicmod: mixitup gallery
+  //===========================================
   var containerEl = document.querySelector('.mixitup_content');
   var mixer = mixitup(containerEl);
+
+  //===========================================
+  // vicmod: filter gallery menu
+  //===========================================
+  $(".test1 li").on("click", function(event){
+    event.preventDefault();
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+  })
 
 })(jQuery); // End of use strict

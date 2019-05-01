@@ -1,0 +1,76 @@
+// menu hovering animation
+
+section#filter_gallery {
+  #menu2 {
+    $width: 150px;
+    $animate_duration: 0.5s;
+    $active_bg_color: $primary;
+    $active_font_color: white;
+
+    &.wrapper {
+      p {
+        margin: 0;
+      }
+      position: relative;
+      height: 10rem;
+    } // .wrapper
+    ul {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      //background: #000;
+      //border-radius: 30px;
+      overflow: hidden;
+      //box-shadow: 0 0 0 1px #333; /* menu border */
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        width: $width;
+
+        &.active {
+          //background:#f7f7f7;
+          transition: $animate_duration;
+          a {
+            color: #262626;
+            color: $active_font_color;
+          } //a
+        } //.active
+
+        a {
+          outline: 0; //remove dotted line
+          display: block;
+          padding: 20px;
+          text-align: center;
+          transition: $animate_duration;
+          text-decoration: none;
+          color: inherit;
+          font-weight: 800;
+        } //a
+      } //li
+
+      @for $i from 1 through 5 {
+        .active:nth-child(#{$i}) ~ .slide {
+          left: $width * ($i - 1);
+          opacity: 1;
+        }
+      }
+    } // ul
+
+    .slide {
+      position: absolute;
+      width: $width;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: $active_bg_color;
+      background-color: $active_bg_color;
+      z-index: -1;
+      transition: $animate_duration;
+      opacity: 0;
+    } // .slide
+  } //#menu2
+} //section#filter_gallery
