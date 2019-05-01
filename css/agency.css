@@ -746,15 +746,6 @@ section#filter_gallery .flex.row {
   flex-direction: row;
 }
 
-@media screen and (min-width: 960px) {
-  section#filter_gallery .animated.fade-in {
-    animation: fadeIn 0.75s ease both;
-  }
-  section#filter_gallery .waypoint {
-    opacity: 0;
-  }
-}
-
 section#filter_gallery .filter-wrap {
   position: relative;
 }
@@ -769,12 +760,6 @@ section#filter_gallery .filter-wrap .float-bar {
   background: #e31b6d;
   /* red */
   transition: all 0.5s ease-in-out;
-}
-
-@media screen and (min-width: 600px) {
-  section#filter_gallery .filter-wrap .float-bar {
-    height: 30px;
-  }
 }
 
 section#filter_gallery .filter-wrap .filter {
