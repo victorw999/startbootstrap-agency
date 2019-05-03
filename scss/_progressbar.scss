@@ -1,0 +1,78 @@
+#progress-bar {
+  /* ========================================================= */
+  /* findmatthrew's css */
+  /* ========================================================= */
+  $bar_color: #eee;
+  $bar_color: transparent;
+  $fill_color: #00a1a7;
+  $tag_color: #04c2c9;
+  .bars-wrap {
+    margin: 50px auto 0 auto;
+    width: calc(100% - 15px);
+    max-width: 90%;
+    align-items: stretch !important;
+  }
+  .flex-50-gt-sm {
+    // display: block;
+    // -webkit-flex: 1 1 50%;
+    // -ms-flex: 1 1 50%;
+    // flex: 1 1 50%;
+    // max-width: 50%;
+    // max-height: 100%;
+    // box-sizing: border-box;
+  }
+  .bar {
+    position: relative;
+    max-width: 90%;
+    color: #666;
+    background-color: $bar_color;
+    align-items: flex-end;
+    height: 28px;
+    margin: 0 0 15px 0;
+    font-size: 11pt;
+    .fill {
+      top: 0;
+      left: 0;
+      position: absolute;
+      background-color: $fill_color;
+      padding: 0;
+      opacity: 0;
+      transition: 1.1s 0.2s width ease-in-out;
+    }
+    .tag {
+      top: 0;
+      left: 0;
+      position: absolute;
+      background-color: $tag_color;
+      color: #fff;
+      height: 100%;
+      width: 110px;
+      width: 70px;
+    }
+  } // .bar
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bar.flex {
+    align-items: flex-end;
+  }
+
+  .bold {
+    font-family: "Raleway-bold";
+  }
+
+  @-webkit-keyframes animate-positive {
+    0% {
+      width: 0%;
+    }
+  }
+  @keyframes animate-positive {
+    0% {
+      width: 0%;
+    }
+  }
+}// #progressbar

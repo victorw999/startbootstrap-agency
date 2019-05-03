@@ -63,4 +63,35 @@
     $(this).addClass('active');
   })
 
+  //===========================================
+  // vicmod: progressbar
+  //===========================================
+  $("#trigger").click(function() {  /* click to trigger animation */
+    var duration = 0;
+    var elements = $(".fill");
+    elements.each(function() {
+      duration = 1 + (Math.floor(Math.random() * 20) / 10);  /* duration + random 0~1.9  */
+      var attr = duration.toString() + "s";
+      $(this).css({
+        /*animation: `animate-positive ${duration}s`,*/
+        animation: "animate-positive " + attr,
+        opacity: "1"
+      });
+    }); // .each
+  }); // .click
+
+  $("#reset").click(function() {
+    /* click to trigger animation */
+    $(".fill").css({
+      animation: "",
+      opacity: "0"
+    });
+  });
+
+
+
+
+
+
+
 })(jQuery); // End of use strict
