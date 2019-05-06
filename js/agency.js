@@ -88,6 +88,36 @@
     });
   });
 
+  /* TRIGGER PROGRESS-BAR*/
+  var waypoint_progressbar = new Waypoint({
+    element: document.getElementById('progress-bar'),
+    handler: function() {
+      var duration = 0;
+      var elements = $(".fill");
+      elements.each(function() {
+        duration = 1 + (Math.floor(Math.random() * 20) / 10);  /* duration + random 0~1.9  */
+        var attr = duration.toString() + "s"; 
+        $(this).css({
+          /*animation: `animate-positive ${duration}s`,*/
+          animation: "animate-positive " + attr,
+          opacity: "1"
+        });
+      }); // .each
+    },
+    offset: 1
+  })
+  /* RESET PROGRESS-BAR ONCE REACH BOTTOM */
+  var waypoint_reset_progressbar = new Waypoint({
+    element: document.getElementById('page-top'), /* body's ID */
+    handler: function(direction) {
+      $('.fill').css({
+        animation: '',
+        opacity: "0"
+      });
+    },
+    offset: 'bottom-in-view'     /* ref: http://imakewebthings.com/waypoints/api/offset-option/#bottom-in-view */
+  })
+
 
 
 
