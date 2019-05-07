@@ -54,6 +54,7 @@
   var containerEl = document.querySelector('.mixitup_content');
   var mixer = mixitup(containerEl);
 
+
   //===========================================
   // vicmod: filter gallery menu
   //===========================================
@@ -63,32 +64,12 @@
     $(this).addClass('active');
   })
 
+
   //===========================================
   // vicmod: progressbar
   //===========================================
-  $("#trigger").click(function() {  /* click to trigger animation */
-    var duration = 0;
-    var elements = $(".fill");
-    elements.each(function() {
-      duration = 1 + (Math.floor(Math.random() * 20) / 10);  /* duration + random 0~1.9  */
-      var attr = duration.toString() + "s";
-      $(this).css({
-        /*animation: `animate-positive ${duration}s`,*/
-        animation: "animate-positive " + attr,
-        opacity: "1"
-      });
-    }); // .each
-  }); // .click
 
-  $("#reset").click(function() {
-    /* click to trigger animation */
-    $(".fill").css({
-      animation: "",
-      opacity: "0"
-    });
-  });
-
-  /* TRIGGER PROGRESS-BAR*/
+  /* TRIGGER PROGRESS-BAR       | ref: demo_1: waypoint04.html*/
   var waypoint_progressbar = new Waypoint({
     element: document.getElementById('progress-bar'),
     handler: function() {
@@ -96,26 +77,42 @@
       var elements = $(".fill");
       elements.each(function() {
         duration = 1 + (Math.floor(Math.random() * 20) / 10);  /* duration + random 0~1.9  */
-        var attr = duration.toString() + "s"; 
+        var attr = duration.toString() + "s";
         $(this).css({
           /*animation: `animate-positive ${duration}s`,*/
           animation: "animate-positive " + attr,
           opacity: "1"
         });
       }); // .each
-    },
-    offset: 1
+    }
   })
-  /* RESET PROGRESS-BAR ONCE REACH BOTTOM */
+
+  /* RESET PROGRESS-BAR ONCE REACH BOTTOM       | ref: demo_1: waypoint04.html*/
   var waypoint_reset_progressbar = new Waypoint({
     element: document.getElementById('page-top'), /* body's ID */
     handler: function(direction) {
-      $('.fill').css({
-        animation: '',
-        opacity: "0"
-      });
+      if (direction == 'up'){
+        $('.fill').css({
+          animation: '',
+          opacity: "0"
+        });
+      }
     },
     offset: 'bottom-in-view'     /* ref: http://imakewebthings.com/waypoints/api/offset-option/#bottom-in-view */
+  })
+
+  /* RESET PROGRESS-BAR ONCE REACH TOP */
+  var waypoint_reset_progressbar_2 = new Waypoint({
+    element: document.getElementById('page-top'), /* body's ID */
+    handler: function(direction) {
+      if (direction == 'up') {
+        $('.fill').css({
+          animation: '',
+          opacity: "0"
+        });
+      } // if
+    },
+    offset: -100    
   })
 
 
