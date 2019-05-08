@@ -878,6 +878,12 @@ section#filter_gallery #gallery_menu .slide {
   opacity: 0;
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  section#filter_gallery #gallery_menu {
+    border: 10px solid red;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   section#filter_gallery #gallery_menu ul li {
     width: 110px;

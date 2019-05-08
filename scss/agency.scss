@@ -3,6 +3,16 @@
 @import "mixins.scss";
 @import "media.scss";
 
+// Install bootstrap breakpoints
+// ref: https://bit.ly/307LUkg
+// download location: https://github.com/twbs/bootstrap/
+//   scss/_functions.scss
+//   scss/_variables.scss
+//   scss/mixins/_breakpoints.scss
+@import "functions";
+@import "variables2";
+@import "mixins/breakpoints";
+
 // Global CSS
 @import "global.scss";
 // Components
