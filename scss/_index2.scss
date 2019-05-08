@@ -1,41 +1,43 @@
-// menu hovering animation
-
-section#filter_gallery {
-  background-color: lightblue !important;
-
-  #gallery_menu {
-    $width: 150px;
+#index2 {
+  #menu3 {
+    $width:140px;
     $animate_duration: 0.5s;
     $active_bg_color: $primary;
     $active_font_color: white;
-
+    background: lightblue;
 
 
     &.wrapper {
       p {
         margin: 0;
       }
-      position: relative;
+      //position: relative;
       height: 10rem;
-    } // .wrapper
-    ul {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
-      //background: #000;
-      //border-radius: 30px;
-      overflow: hidden;
-      //box-shadow: 0 0 0 1px #333; /* menu border */
-      margin: 0;
-      padding: 0;
+      justify-content: center;
+      align-items: center;
+    } // .wrapper
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      align-content: center;
+      align-items: center;
+      // overflow: hidden;
+      margin: 0; padding: 0;
+      width:100%;
 
       li {
         list-style: none;
         width: $width;
+        flex: 1 1 auto; // to fill the flex parent's space
 
+        background: steelblue;
+        border: 1px blue solid;
         &.active {
+          //background:#f7f7f7;
           transition: $animate_duration;
           a {
             color: #262626;
@@ -55,12 +57,15 @@ section#filter_gallery {
         } //a
       } //li
 
+
       @for $i from 1 through 5 {
         .active:nth-child(#{$i}) ~ .slide {
           left: $width * ($i - 1);
           opacity: 1;
         }
       }
+
+
     } // ul
 
     .slide {
@@ -75,31 +80,5 @@ section#filter_gallery {
       transition: $animate_duration;
       opacity: 0;
     } // .slide
-  } //#gallery_menu
-
-  @include media-breakpoint-only(sm){
-    #gallery_menu{
-      border:10px solid red;
-    }
-  }
-
-  @include tablet{
-    #gallery_menu{
-      $width: 110px;
-      ul{
-        li {
-          width: $width;
-          a{padding: 20px 5px;}
-        }
-        @for $i from 1 through 5 {
-          .active:nth-child(#{$i}) ~ .slide {
-            left: $width * ($i - 1);
-            opacity: 1;
-          }
-        }
-      }// ul
-      .slide { width: $width; }
-    }// #gallery_menu
-  }//@include tablet
-
-} //section#filter_gallery
+  } //#menu3
+}

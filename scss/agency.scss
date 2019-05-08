@@ -1,6 +1,8 @@
 // Core variables and mixins
 @import "variables.scss";
 @import "mixins.scss";
+@import "media.scss";
+
 // Global CSS
 @import "global.scss";
 // Components
@@ -13,7 +15,8 @@
 @import "contact.scss";
 @import "footer.scss";
 
-@import "scrolldemo";  
+@import "scrolldemo";
 @import "filter_gallery";
 @import "filter_gallery_menu";
 @import "progressbar";
+@import "index2";

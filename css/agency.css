@@ -1,4 +1,9 @@
 /* $primary: #fed136 !default;*/
+/* REF: http://stephen.io/mediaqueries/#iPhone
+https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+*/
+/* includes iphone 6, 7, 8 */
+/* includes iphone 6+, 7+, 8+ */
 body {
   overflow-x: hidden;
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -786,16 +791,20 @@ section#filter_gallery .filter-wrap .filter {
   }
 }
 
-section#filter_gallery #menu2.wrapper {
+section#filter_gallery {
+  background-color: lightblue !important;
+}
+
+section#filter_gallery #gallery_menu.wrapper {
   position: relative;
   height: 10rem;
 }
 
-section#filter_gallery #menu2.wrapper p {
+section#filter_gallery #gallery_menu.wrapper p {
   margin: 0;
 }
 
-section#filter_gallery #menu2 ul {
+section#filter_gallery #gallery_menu ul {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -806,21 +815,21 @@ section#filter_gallery #menu2 ul {
   padding: 0;
 }
 
-section#filter_gallery #menu2 ul li {
+section#filter_gallery #gallery_menu ul li {
   list-style: none;
   width: 150px;
 }
 
-section#filter_gallery #menu2 ul li.active {
+section#filter_gallery #gallery_menu ul li.active {
   transition: 0.5s;
 }
 
-section#filter_gallery #menu2 ul li.active a {
+section#filter_gallery #gallery_menu ul li.active a {
   color: #262626;
   color: white;
 }
 
-section#filter_gallery #menu2 ul li a {
+section#filter_gallery #gallery_menu ul li a {
   outline: 0;
   display: block;
   padding: 20px;
@@ -831,32 +840,32 @@ section#filter_gallery #menu2 ul li a {
   font-weight: 800;
 }
 
-section#filter_gallery #menu2 ul .active:nth-child(1) ~ .slide {
+section#filter_gallery #gallery_menu ul .active:nth-child(1) ~ .slide {
   left: 0px;
   opacity: 1;
 }
 
-section#filter_gallery #menu2 ul .active:nth-child(2) ~ .slide {
+section#filter_gallery #gallery_menu ul .active:nth-child(2) ~ .slide {
   left: 150px;
   opacity: 1;
 }
 
-section#filter_gallery #menu2 ul .active:nth-child(3) ~ .slide {
+section#filter_gallery #gallery_menu ul .active:nth-child(3) ~ .slide {
   left: 300px;
   opacity: 1;
 }
 
-section#filter_gallery #menu2 ul .active:nth-child(4) ~ .slide {
+section#filter_gallery #gallery_menu ul .active:nth-child(4) ~ .slide {
   left: 450px;
   opacity: 1;
 }
 
-section#filter_gallery #menu2 ul .active:nth-child(5) ~ .slide {
+section#filter_gallery #gallery_menu ul .active:nth-child(5) ~ .slide {
   left: 600px;
   opacity: 1;
 }
 
-section#filter_gallery #menu2 .slide {
+section#filter_gallery #gallery_menu .slide {
   position: absolute;
   width: 150px;
   height: 100%;
@@ -867,6 +876,38 @@ section#filter_gallery #menu2 .slide {
   z-index: -1;
   transition: 0.5s;
   opacity: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  section#filter_gallery #gallery_menu ul li {
+    width: 110px;
+  }
+  section#filter_gallery #gallery_menu ul li a {
+    padding: 20px 5px;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(1) ~ .slide {
+    left: 0px;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(2) ~ .slide {
+    left: 110px;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(3) ~ .slide {
+    left: 220px;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(4) ~ .slide {
+    left: 330px;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(5) ~ .slide {
+    left: 440px;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu .slide {
+    width: 110px;
+  }
 }
 
 #progress-bar {
@@ -939,4 +980,97 @@ section#filter_gallery #menu2 .slide {
   0% {
     width: 0%;
   }
+}
+
+#index2 #menu3 {
+  background: lightblue;
+}
+
+#index2 #menu3.wrapper {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#index2 #menu3.wrapper p {
+  margin: 0;
+}
+
+#index2 #menu3 ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#index2 #menu3 ul li {
+  list-style: none;
+  width: 140px;
+  flex: 1 1 auto;
+  background: steelblue;
+  border: 1px blue solid;
+}
+
+#index2 #menu3 ul li.active {
+  transition: 0.5s;
+}
+
+#index2 #menu3 ul li.active a {
+  color: #262626;
+  color: white;
+}
+
+#index2 #menu3 ul li a {
+  outline: 0;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  transition: 0.5s;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+}
+
+#index2 #menu3 ul .active:nth-child(1) ~ .slide {
+  left: 0px;
+  opacity: 1;
+}
+
+#index2 #menu3 ul .active:nth-child(2) ~ .slide {
+  left: 140px;
+  opacity: 1;
+}
+
+#index2 #menu3 ul .active:nth-child(3) ~ .slide {
+  left: 280px;
+  opacity: 1;
+}
+
+#index2 #menu3 ul .active:nth-child(4) ~ .slide {
+  left: 420px;
+  opacity: 1;
+}
+
+#index2 #menu3 ul .active:nth-child(5) ~ .slide {
+  left: 560px;
+  opacity: 1;
+}
+
+#index2 #menu3 .slide {
+  position: absolute;
+  width: 140px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #137ec0;
+  background-color: #137ec0;
+  z-index: -1;
+  transition: 0.5s;
+  opacity: 0;
 }

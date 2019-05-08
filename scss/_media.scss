@@ -1,0 +1,45 @@
+// ref: https://davidwalsh.name/write-media-queries-sass
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/* REF: http://stephen.io/mediaqueries/#iPhone
+https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+*/
+@mixin iphone5 {
+  @media only screen and (min-width: 320px) and (max-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+/* includes iphone 6, 7, 8 */
+@mixin iphone6 {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+/* includes iphone 6+, 7+, 8+ */
+@mixin iphone6_plus {
+  @media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin iphonex {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
