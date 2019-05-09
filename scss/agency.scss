@@ -4,14 +4,10 @@
 @import "media.scss";
 
 // Install bootstrap breakpoints
-// ref: https://bit.ly/307LUkg
-// download location: https://github.com/twbs/bootstrap/
-//   scss/_functions.scss
-//   scss/_variables.scss
-//   scss/mixins/_breakpoints.scss
-@import "functions";
-@import "variables2";
-@import "mixins/breakpoints";
+// REF: https://eddyerburgh.me/use-bootstrap-4-media-query-mixins
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
 
 // Global CSS
 @import "global.scss";

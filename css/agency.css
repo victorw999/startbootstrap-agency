@@ -791,13 +791,14 @@ section#filter_gallery .filter-wrap .filter {
   }
 }
 
+/* width for icons */
 section#filter_gallery {
   background-color: lightblue !important;
 }
 
 section#filter_gallery #gallery_menu.wrapper {
   position: relative;
-  height: 10rem;
+  margin-bottom: 75px;
 }
 
 section#filter_gallery #gallery_menu.wrapper p {
@@ -878,13 +879,7 @@ section#filter_gallery #gallery_menu .slide {
   opacity: 0;
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-  section#filter_gallery #gallery_menu {
-    border: 10px solid red;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 991.98px) {
   section#filter_gallery #gallery_menu ul li {
     width: 110px;
   }
@@ -913,6 +908,86 @@ section#filter_gallery #gallery_menu .slide {
   }
   section#filter_gallery #gallery_menu .slide {
     width: 110px;
+  }
+}
+
+@media (min-width: 768px) {
+  section#filter_gallery #gallery_menu li .icon_svg {
+    display: none;
+  }
+  section#filter_gallery #gallery_menu li .textlink {
+    display: block;
+  }
+}
+
+@media (max-width: 767.98px) {
+  section#filter_gallery #gallery_menu ul li {
+    width: 5.1rem;
+  }
+  section#filter_gallery #gallery_menu ul li a {
+    padding: 0px;
+  }
+  section#filter_gallery #gallery_menu ul li .icon_svg {
+    display: block;
+    font-size: 5.1rem;
+  }
+  section#filter_gallery #gallery_menu ul li .textlink {
+    display: none;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(1) ~ .slide {
+    left: 0rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(2) ~ .slide {
+    left: 5.1rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(3) ~ .slide {
+    left: 10.2rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(4) ~ .slide {
+    left: 15.3rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(5) ~ .slide {
+    left: 20.4rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu .slide {
+    width: 5.1rem;
+  }
+}
+
+@media (max-width: 376px) {
+  section#filter_gallery #gallery_menu ul li {
+    width: 4rem;
+  }
+  section#filter_gallery #gallery_menu ul li .icon_svg {
+    font-size: 4rem;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(1) ~ .slide {
+    left: 0rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(2) ~ .slide {
+    left: 4rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(3) ~ .slide {
+    left: 8rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(4) ~ .slide {
+    left: 12rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu ul .active:nth-child(5) ~ .slide {
+    left: 16rem;
+    opacity: 1;
+  }
+  section#filter_gallery #gallery_menu .slide {
+    width: 4rem;
   }
 }
 

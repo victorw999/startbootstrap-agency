@@ -2,6 +2,9 @@
 
 $tablet-width: 768px;
 $desktop-width: 1024px;
+$iphone5:320px;
+$iphone6:375px;
+$iphone6plus: 414px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {

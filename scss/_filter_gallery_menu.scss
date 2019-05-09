@@ -1,4 +1,14 @@
 // menu hovering animation
+/* width for icons */
+$dec_amt : 1rem;
+$w_sm : 5.1rem;
+// $w_iphone6plus : $w_sm - ( 1 * $dec_amt) ;
+$w_iphone6 : 4rem;
+// $w_iphone5 : $w_sm - ( 3 * $dec_amt) ;
+// xs       < 575px
+// ip6plus  < 414
+// ip6      < 375
+// ip5      < 320
 
 section#filter_gallery {
   background-color: lightblue !important;
@@ -9,14 +19,13 @@ section#filter_gallery {
     $active_bg_color: $primary;
     $active_font_color: white;
 
-
-
     &.wrapper {
       p {
         margin: 0;
       }
       position: relative;
-      height: 10rem;
+      // height: 10rem;
+      margin-bottom: 75px;
     } // .wrapper
     ul {
       position: absolute;
@@ -77,13 +86,10 @@ section#filter_gallery {
     } // .slide
   } //#gallery_menu
 
-  @include media-breakpoint-only(sm){
-    #gallery_menu{
-      border:10px solid red;
-    }
-  }
 
-  @include tablet{
+
+
+  @include media-breakpoint-down(md){
     #gallery_menu{
       $width: 110px;
       ul{
@@ -100,6 +106,103 @@ section#filter_gallery {
       }// ul
       .slide { width: $width; }
     }// #gallery_menu
-  }//@include tablet
+  }//@include media-breakpoint-only(md)
+
+  @include media-breakpoint-up(md){
+    #gallery_menu{
+      li {
+        .icon_svg{display: none;}
+        .textlink{display: block;}
+      }
+    }
+  }// @include media-breakpoint-up(xs)
+
+
+
+  @include media-breakpoint-down(sm){
+    #gallery_menu{
+      $width: $w_sm;
+      ul{
+        li {
+          width: $width;
+          a {padding: 0px;}
+          .icon_svg{display: block; font-size: $w_sm;}
+          .textlink{display: none;}
+        }
+        @for $i from 1 through 5 {
+          .active:nth-child(#{$i}) ~ .slide {
+            left: $width * ($i - 1);
+            opacity: 1;
+          }
+        }
+      }// ul
+      .slide { width: $width; }
+    }// #gallery_menu
+  }
+
+
+  // @media (max-width: #{$iphone6plus + 1px}) {
+  //   #gallery_menu{
+  //     $width: $w_iphone6plus;
+  //     ul{
+  //       li {
+  //         width: $width;
+  //         .icon_svg{font-size: $w_iphone6plus;}
+  //       }
+  //       @for $i from 1 through 5 {
+  //         .active:nth-child(#{$i}) ~ .slide {
+  //           left: $width * ($i - 1);
+  //           opacity: 1;
+  //         }
+  //       }
+  //     }// ul
+  //     .slide { width: $width; }
+  //   }// #gallery_menu
+  // }//$iphone6plus
+
+
+
+
+  @media (max-width: #{$iphone6 + 1px}) {
+    #gallery_menu{
+      $width: $w_iphone6;
+      ul{
+        li {
+          width: $width;
+          .icon_svg{font-size: $w_iphone6;}
+        }
+        @for $i from 1 through 5 {
+          .active:nth-child(#{$i}) ~ .slide {
+            left: $width * ($i - 1);
+            opacity: 1;
+          }
+        }
+      }// ul
+      .slide { width: $width; }
+    }// #gallery_menu
+  }//$iphone6
+
+
+
+  //
+  // @media (max-width: #{$iphone5 + 1px}) {
+  //   #gallery_menu{
+  //     $width: $w_iphone5;
+  //     ul{
+  //       li {
+  //         width: $width;
+  //         .icon_svg{font-size: $w_iphone5;}
+  //       }
+  //       @for $i from 1 through 5 {
+  //         .active:nth-child(#{$i}) ~ .slide {
+  //           left: $width * ($i - 1);
+  //           opacity: 1;
+  //         }
+  //       }
+  //     }// ul
+  //     .slide { width: $width; }
+  //   }// #gallery_menu
+  // }//$iphone5
+
 
 } //section#filter_gallery

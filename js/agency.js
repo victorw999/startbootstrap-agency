@@ -58,7 +58,7 @@
   //===========================================
   // vicmod: filter gallery menu
   //===========================================
-  $(".test1 li").on("click", function(event){
+  $("#gallery_menu ul li").on("click", function(event){
     event.preventDefault();
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
@@ -112,7 +112,7 @@
         });
       } // if
     },
-    offset: -100    
+    offset: -100
   })
 
 
