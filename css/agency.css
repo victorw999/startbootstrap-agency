@@ -723,6 +723,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-size: cover;
   border: 5px solid #fff;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   transition: 5s;
   background-position: top;
 }
