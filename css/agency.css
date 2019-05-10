@@ -703,7 +703,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 }
 
 /* scrolldemo_boxheight */
-#scrolldemo .wrapper {
+.sd_wrapper {
   margin: 0;
   padding: 0;
   position: relative;
@@ -711,7 +711,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   max-height: 262px;
 }
 
-#scrolldemo .box {
+.sd_box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -722,13 +722,11 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   height: 262px;
   background-size: cover;
   border: 5px solid #fff;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   transition: 5s;
   background-position: top;
 }
 
-#scrolldemo .box:hover {
+.sd_box:hover {
   background-position: bottom;
 }
 
