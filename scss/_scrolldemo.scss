@@ -1,7 +1,7 @@
 /* scrolldemo_boxheight */
 
   $box_max_width: 400px;
-  $sd_height: 262px; //$sd_height: $box_max_width / 1.33;  
+  $sd_height: 262px; //$sd_height: $box_max_width / 1.33;
   $scroll_duration: 5s;
 
   .sd_wrapper {
@@ -16,7 +16,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: $box_max_width; width:100%;
+    max-width: $box_max_width; width:100%; 
     max-height: $sd_height; height:$sd_height;
     background-size: cover;
     border: 5px solid #fff;

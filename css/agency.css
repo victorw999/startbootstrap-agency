@@ -173,7 +173,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg-3.jpg");
+  background-color: #156788;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -791,10 +791,6 @@ section#filter_gallery .filter-wrap .filter {
 }
 
 /* width for icons */
-section#filter_gallery {
-  background-color: lightblue !important;
-}
-
 section#filter_gallery #gallery_menu.wrapper {
   position: relative;
   margin-bottom: 75px;
@@ -825,12 +821,10 @@ section#filter_gallery #gallery_menu ul li.active {
 }
 
 section#filter_gallery #gallery_menu ul li.active a {
-  color: #262626;
   color: white;
 }
 
 section#filter_gallery #gallery_menu ul li a {
-  outline: 0;
   display: block;
   padding: 20px;
   text-align: center;

@@ -11,8 +11,6 @@ $w_iphone6 : 4rem;
 // ip5      < 320
 
 section#filter_gallery {
-  background-color: lightblue !important;
-
   #gallery_menu {
     $width: 150px;
     $animate_duration: 0.5s;
@@ -47,13 +45,16 @@ section#filter_gallery {
         &.active {
           transition: $animate_duration;
           a {
-            color: #262626;
             color: $active_font_color;
           } //a
         } //.active
 
         a {
-          outline: 0; //remove dotted line
+          &:active, &:focus, &:hover {     
+          }
+
+          // outline: 2; //remove dotted line
+          // border:none;
           display: block;
           padding: 20px;
           text-align: center;
@@ -62,6 +63,9 @@ section#filter_gallery {
           color: inherit;
           font-weight: 800;
         } //a
+
+
+
       } //li
 
       @for $i from 1 through 5 {
