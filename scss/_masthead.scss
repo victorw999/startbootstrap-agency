@@ -8,7 +8,7 @@ header.masthead {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
-  height: 120vh;
+  // height: 120vh;
   @include background-cover;
   .intro-text {
     padding-top: 150px;

@@ -1,6 +1,9 @@
 // Styling for the navbar
+// $navbar_bg_color: darken($primary, 30%);
+$navbar_bg_color: $gray-900;
+
 #mainNav {
-  background-color: $gray-900;
+  background-color: $navbar_bg_color;
   .navbar-toggler {
     font-size: 12px;
     right: 0;
@@ -33,6 +36,7 @@
         &.active,
         &:hover {
           color: $primary;
+          color: lighten($primary,20%);
         }
       }
     }
@@ -63,7 +67,7 @@
     &.navbar-shrink {
       padding-top: 0;
       padding-bottom: 0;
-      background-color: $gray-900;
+      background-color: $navbar_bg_color;
       .navbar-brand {
         font-size: 1.25em;
         padding: 12px 0;
