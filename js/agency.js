@@ -52,7 +52,11 @@
   // vicmod: mixitup gallery
   //===========================================
   var containerEl = document.querySelector('.mixitup_content');
-  var mixer = mixitup(containerEl);
+  var mixer;
+  if(containerEl) { /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
+    mixer = mixitup(containerEl);
+  }
+
 
 
   //===========================================
