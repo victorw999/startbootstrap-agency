@@ -6,8 +6,8 @@ if(empty($_POST['name'])      ||
    empty($_POST['message'])   ||
    !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
    {
-   echo "No arguments Provided!";
-   return false;
+     echo "No arguments Provided!";
+     return false;
    }
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
@@ -21,11 +21,13 @@ $email_subject = "Website Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
 $headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
-//mail($to,$email_subject,$email_body,$headers);
+
 
 echo '<script type="text/javascript">
     console.log("start verifying logic.....");
   </script>';
+
+$email_body = "\n\n start verifying logic... \n\n";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
   // Build POST request:
@@ -40,20 +42,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
   // Take action based on the score returned:
   if ($recaptcha->score >= 0.5) {
       // Verified - send email
+      $email_body += "\n\n Verified - send email. \n\n";
       echo '<script type="text/javascript">
-          console.log("Verified - send email");
-        </script>';
-
-
+              console.log("Verified - send email");
+            </script>';
   } else {
       // Not verified - show form error
-
+      $email_body += "\n\n Not verified \n\n";
       echo '<script type="text/javascript">
-          console.log("Not verified");
-        </script>';
+              console.log("Not verified");
+            </script>';
   }
 }
 
+mail($to,$email_subject,$email_body,$headers);
 return true;
 
 ?>
