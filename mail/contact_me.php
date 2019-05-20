@@ -22,8 +22,10 @@ $email_body = "You have received a new message from your website contact form.\n
 $headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
 //mail($to,$email_subject,$email_body,$headers);
-return true;
 
+echo '<script type="text/javascript">
+    console.log("start verifying logic.....");
+  </script>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
   // Build POST request:
@@ -39,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
   if ($recaptcha->score >= 0.5) {
       // Verified - send email
       echo '<script type="text/javascript">
-          window.onload = function () { alert("Verified - send email"); }
           console.log("Verified - send email");
         </script>';
 
@@ -48,11 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       // Not verified - show form error
 
       echo '<script type="text/javascript">
-          window.onload = function () { alert("Not verified "); }
           console.log("Not verified");
         </script>';
   }
 }
 
+return true;
 
 ?>

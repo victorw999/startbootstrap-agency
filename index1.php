@@ -19,10 +19,7 @@ require('contact_captcha_4/constant.php');
 //         // Not verified - show form error
 //     }
 // }
-echo '<script type="text/javascript">
-    window.onload = function () { alert("Verified - send email"); }
-    console.log("testing Verified - send email");
-  </script>';
+ 
 
  ?>
 
