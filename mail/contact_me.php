@@ -23,11 +23,15 @@ $headers = "From: noreply@akwa.com\n"; // This is the email address the generate
 $headers .= "Reply-To: $email_address";
 
 
+date_default_timezone_set('America/Los_Angeles');
+$date = date('m/d/Y h:i:s a', time());
+
 echo '<script type="text/javascript">
     console.log("start verifying logic.....");
   </script>';
 
-$email_body = "\n\n start verifying logic... \n\n";
+$email_body += "\n\n $date \n\n"
+$email_body += "\n\n start verifying logic... \n\n";
 //
 // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
 //   // Build POST request:
