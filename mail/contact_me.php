@@ -28,32 +28,32 @@ echo '<script type="text/javascript">
   </script>';
 
 $email_body = "\n\n start verifying logic... \n\n";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
-  // Build POST request:
-  $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-  $recaptcha_secret = SECRET_KEY;
-  $recaptcha_response = $_POST['recaptcha_response'];
-
-  // Make and decode POST request:
-  $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-  $recaptcha = json_decode($recaptcha);
-
-  // Take action based on the score returned:
-  if ($recaptcha->score >= 0.5) {
-      // Verified - send email
-      $email_body += "\n\n Verified - send email. \n\n";
-      echo '<script type="text/javascript">
-              console.log("Verified - send email");
-            </script>';
-  } else {
-      // Not verified - show form error
-      $email_body += "\n\n Not verified \n\n";
-      echo '<script type="text/javascript">
-              console.log("Not verified");
-            </script>';
-  }
-}
+//
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
+//   // Build POST request:
+//   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+//   $recaptcha_secret = SECRET_KEY;
+//   $recaptcha_response = $_POST['recaptcha_response'];
+//
+//   // Make and decode POST request:
+//   $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+//   $recaptcha = json_decode($recaptcha);
+//
+//   // Take action based on the score returned:
+//   if ($recaptcha->score >= 0.5) {
+//       // Verified - send email
+//       $email_body += "\n\n Verified - send email. \n\n";
+//       echo '<script type="text/javascript">
+//               console.log("Verified - send email");
+//             </script>';
+//   } else {
+//       // Not verified - show form error
+//       $email_body += "\n\n Not verified \n\n";
+//       echo '<script type="text/javascript">
+//               console.log("Not verified");
+//             </script>';
+//   }
+// }
 
 mail($to,$email_subject,$email_body,$headers);
 return true;
