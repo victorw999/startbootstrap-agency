@@ -39,14 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
   if ($recaptcha->score >= 0.5) {
       // Verified - send email
       echo '<script type="text/javascript">
-          window.onload = function () { alert(Verified - send email"); }
+          window.onload = function () { alert("Verified - send email"); }
+          console.log("Verified - send email");
         </script>';
+
 
   } else {
       // Not verified - show form error
 
       echo '<script type="text/javascript">
           window.onload = function () { alert("Not verified "); }
+          console.log("Not verified");
         </script>';
   }
 }
