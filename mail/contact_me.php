@@ -38,10 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
   // Take action based on the score returned:
   if ($recaptcha->score >= 0.5) {
       // Verified - send email
-      alert("Verified - send email");
+      echo '<script type="text/javascript">
+          window.onload = function () { alert(Verified - send email"); }
+        </script>';
+
   } else {
       // Not verified - show form error
-      alert("Not verified ");
+
+      echo '<script type="text/javascript">
+          window.onload = function () { alert("Not verified "); }
+        </script>';
   }
 }
 
