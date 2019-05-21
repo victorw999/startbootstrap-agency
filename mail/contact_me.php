@@ -54,6 +54,9 @@ debugToBrowserConsole("conosle: start verifying logic.....");
 fwrite($log_handle, logMSG("log:  start loging ")); //Log File
 
 
+$recaptcha_response = $_POST['recaptcha_response'];
+fwrite($log_handle, logMSG( $recaptcha_response )); //Log File
+fwrite($log_handle, logMSG(" $recaptcha_response ")); //Log File
 
 $email_body .= "start verifying logic... \n\n";
 $email_body .= "\n\n";
@@ -65,7 +68,7 @@ if (isset($_POST['recaptcha_response'])){
   $recaptcha_secret = SECRET_KEY;
   $recaptcha_response = $_POST['recaptcha_response'];
 
-  fwrite($log_handle, logMSG( $recaptcha_response )); //Log File 
+  fwrite($log_handle, logMSG( $recaptcha_response )); //Log File
 
   $email_body .= "recaptcha_response:  $recaptcha_response ";
   $email_body .= "\n";
@@ -84,7 +87,7 @@ if (isset($_POST['recaptcha_response'])){
   }
 }
 
-mail($to,$email_subject,$email_body,$headers);
+// mail($to,$email_subject,$email_body,$headers);
 
 
 
