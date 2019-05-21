@@ -28,8 +28,19 @@ $email_body = "You have received a new message from your website contact form.\n
 $headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
 
-$txt = "user id date";
-$myfile = file_put_contents('viclogs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+
+// Log File Setup
+function logMSG( $content ){
+  $time = date('m/d/Y h:i:s a', time());
+  return $time . ": " . $content . "\n\n";
+}
+$file = "log.txt";
+$log_handle = fopen($file, 'a') or die('cannot open: ' .$file);
+
+
+
+
+
 
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
@@ -40,6 +51,9 @@ echo '<script type="text/javascript">
       </script>';
 
 debugToBrowserConsole("conosle: start verifying logic.....");
+fwrite($log_handle, logMSG("log:  start loging ")); //Log File
+
+
 
 $email_body .= "start verifying logic... \n\n";
 $email_body .= "\n\n";
@@ -50,6 +64,8 @@ if (isset($_POST['recaptcha_response'])){
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
   $recaptcha_secret = SECRET_KEY;
   $recaptcha_response = $_POST['recaptcha_response'];
+
+  fwrite($log_handle, logMSG( $recaptcha_response )); //Log File 
 
   $email_body .= "recaptcha_response:  $recaptcha_response ";
   $email_body .= "\n";
@@ -69,6 +85,12 @@ if (isset($_POST['recaptcha_response'])){
 }
 
 mail($to,$email_subject,$email_body,$headers);
+
+
+
+
+fclose($log_handle); // Log File Setup
+
 return true;
 
 ?>
