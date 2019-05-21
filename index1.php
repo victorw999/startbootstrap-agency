@@ -19,8 +19,12 @@ require('contact_captcha_4/constant.php');
 //         // Not verified - show form error
 //     }
 // }
- 
 
+echo '<script type="text/javascript">
+    console.log("index1.php: start testing php ecoc  logic.....");
+  </script>';
+
+echo "<script>console.debug( \"PHP DEBUG:  \" );</script>";
  ?>
 
 
