@@ -32,8 +32,10 @@ echo '<script type="text/javascript">
 
 $email_body .= "\n\n $date \n\n";
 $email_body .= "\n\n start verifying logic... \n\n";
+$email_body .= $_POST['recaptcha_response'];
+$email_body .= "\n";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
+// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
   // Build POST request:
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
   $recaptcha_secret = SECRET_KEY;
@@ -57,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
               console.log("Not verified");
             </script>';
   }
-}
+// }
 
 mail($to,$email_subject,$email_body,$headers);
 return true;
