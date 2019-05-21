@@ -28,19 +28,23 @@ $email_body = "You have received a new message from your website contact form.\n
 $headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
 
+$txt = "user id date";
+$myfile = file_put_contents('viclogs.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
-$email_body .= "$date \n\n";
+$email_body .= "\n\n $date \n\n";
 
 echo '<script type="text/javascript">
-    console.log("start verifying logic.....");
-  </script>';
+        console.log("start verifying logic.....");
+      </script>';
 
 debugToBrowserConsole("conosle: start verifying logic.....");
 
 $email_body .= "start verifying logic... \n\n";
 $email_body .= "\n\n";
 
+if (isset($_POST['recaptcha_response'])){
 // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
   // Build POST request:
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -62,7 +66,7 @@ $email_body .= "\n\n";
       // Not verified - show form error
       $email_body .= "\n\n Not verified \n\n";
   }
-// }
+}
 
 mail($to,$email_subject,$email_body,$headers);
 return true;
