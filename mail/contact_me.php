@@ -32,7 +32,6 @@ echo '<script type="text/javascript">
 
 $email_body .= "\n\n $date \n\n";
 $email_body .= "\n\n start verifying logic... \n\n";
-$email_body .= $_POST['recaptcha_response'];
 $email_body .= "\n";
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
@@ -40,6 +39,9 @@ $email_body .= "\n";
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
   $recaptcha_secret = SECRET_KEY;
   $recaptcha_response = $_POST['recaptcha_response'];
+
+  $email_body .= "recaptcha_response:  $recaptcha_response ";
+  $email_body .= "\n";
 
   // Make and decode POST request:
   $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
@@ -49,15 +51,9 @@ $email_body .= "\n";
   if ($recaptcha->score >= 0.5) {
       // Verified - send email
       $email_body .= "\n\n Verified - send email. \n\n";
-      echo '<script type="text/javascript">
-              console.log("Verified - send email");
-            </script>';
   } else {
       // Not verified - show form error
       $email_body .= "\n\n Not verified \n\n";
-      echo '<script type="text/javascript">
-              console.log("Not verified");
-            </script>';
   }
 // }
 
