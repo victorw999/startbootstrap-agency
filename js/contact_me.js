@@ -15,7 +15,16 @@ $(function() {
       var firstName = name; // For Success/Failure Message
 
       //vicmod
-      var captcha = $("recaptchaResponse").val();
+      var sitekey = $("#sitekey").val();
+      grecaptcha.ready(function() {
+        grecaptcha.execute( sitekey , {
+          action: 'contact'
+        }).then(function(token) {
+          document.getElementById('recaptchaResponse').value = token;
+        });
+      });
+
+      var token = $("recaptchaResponse").val();
 
       // Check for white space in name for Success/Fail message
       if (firstName.indexOf(' ') >= 0) {
@@ -24,14 +33,14 @@ $(function() {
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
       $.ajax({
-        url: "test_validate.php",
+        url: "../mail/contact_me2.php",
         type: "POST",
         data: {
           name: name,
           phone: phone,
           email: email,
           message: message,
-          captcha: captcha
+          token: token
         },
         cache: false,
         success: function() {

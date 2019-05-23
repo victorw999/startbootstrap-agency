@@ -1,33 +1,6 @@
 <?php
-require('contact_captcha_4/constant.php');
-
-// // Check if form was submitted:
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
-//     // Build POST request:
-//     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-//     $recaptcha_secret = SECRET_KEY;
-//     $recaptcha_response = $_POST['recaptcha_response'];
-//
-//     // Make and decode POST request:
-//     $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-//     $recaptcha = json_decode($recaptcha);
-//
-//     // Take action based on the score returned:
-//     if ($recaptcha->score >= 0.5) {
-//         // Verified - send email
-//     } else {
-//         // Not verified - show form error
-//     }
-// }
-
-echo '<script type="text/javascript">
-    console.log("index1.php: start testing php ecoc  logic.....");
-  </script>';
-
-echo "<script>console.debug( \"PHP DEBUG:  \" );</script>";
- ?>
-
-
+  require('recaptcha/constant.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,19 +32,6 @@ echo "<script>console.debug( \"PHP DEBUG:  \" );</script>";
 
   <!-- google re-captcha -->
   <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
-  <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute('<?php echo SITE_KEY; ?>', {
-        action: 'contact'
-      }).then(function(token) {
-
-        // console.log(token);
-        var recaptchaResponse = document.getElementById('recaptchaResponse');
-        recaptchaResponse.value = token;
-      });
-    });
-  </script>
-
 </head>
 
 <body id="page-top">
@@ -175,7 +135,7 @@ echo "<script>console.debug( \"PHP DEBUG:  \" );</script>";
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To Our Website!</div>
-        <div class="intro-heading text-uppercase">AKWA M#6 deploy bluehost</div>
+        <div class="intro-heading text-uppercase">Test Captcha</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
       </div>
     </div>
@@ -850,20 +810,27 @@ echo "<script>console.debug( \"PHP DEBUG:  \" );</script>";
             </div>
 
             <!-- google reCAPTCHA -->
-            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+            <input type="text" name="recaptcha_response" id="recaptchaResponse">
+            <input type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY; ?>">
             <!--END: google reCAPTCHA -->
 
           </form>
-
-
-
         </div>
       </div>
     </div>
   </section>
 
+  <!-- google re-captcha -->
 
-
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('<?php echo SITE_KEY; ?>', {
+        action: 'contact'
+      }).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token;
+      });
+    });
+  </script>
 
 
   <!-- Footer -->
