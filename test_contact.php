@@ -44,8 +44,8 @@ require('contact_captcha_4/constant.php');
         var recaptchaResponse = document.getElementById('recaptchaResponse');
 
         recaptchaResponse.value = token;
-        console.log(recaptchaResponse.value);
-         
+        console.log(recaptchaResponse);
+
       });
     });
   </script>
