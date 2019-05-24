@@ -810,8 +810,15 @@
             </div>
 
             <!-- google reCAPTCHA -->
-            <input type="text" name="recaptcha_response" id="recaptchaResponse">
-            <input type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY; ?>">
+            <style>
+              .prompt{width:100%;}
+              .prompt-label, .prompt_box{color:white;}
+            </style>
+            <span class="prompt-label">#recaptchaResponse:</span> <br>
+            <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
+            <span class="prompt-label">#sitekey:</span> <br>
+            <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY; ?>"><br>
+            <div class="prompt_box">prompt_box:  </div>
             <!--END: google reCAPTCHA -->
 
           </form>
@@ -823,13 +830,13 @@
   <!-- google re-captcha -->
 
   <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute('<?php echo SITE_KEY; ?>', {
-        action: 'contact'
-      }).then(function(token) {
-        document.getElementById('recaptchaResponse').value = token;
-      });
-    });
+    // grecaptcha.ready(function() {
+    //   grecaptcha.execute('<?php echo SITE_KEY; ?>', {
+    //     action: 'contact'
+    //   }).then(function(token) {
+    //     document.getElementById('recaptchaResponse').value = token;
+    //   });
+    // });
   </script>
 
 
