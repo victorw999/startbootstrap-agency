@@ -11,14 +11,13 @@ $(function() {
       document.getElementById('recaptchaResponse').value = token; // add token to form's hidden element
 
       // pass token to backend script for verification, using ajax
-
       $.post("recaptcha/backend_validate.php", {
         token: token
       },function(result){
         if (result.success){
-          mail_sender_url = "mail/contact_me2.php"
+          mail_sender_url = "mail/contact_me2.php";
         }else{
-          mail_sender_url = "test
+          mail_sender_url = "test";
         }
         // captcha_result = result;
       });
