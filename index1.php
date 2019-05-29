@@ -31,7 +31,7 @@
   <link href="img/icons/icomoon/style.css" rel="stylesheet">
   <!-- favicon -->
   <link rel="icon" href="logo.ico">
-  
+
   <!-- google re-captcha -->
   <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
 </head>

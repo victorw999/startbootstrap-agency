@@ -7,7 +7,8 @@ $(function() {
   grecaptcha.ready(function() {
     grecaptcha.execute( sitekey , {
       action: 'contact'
-    }).then(function(token) {
+    })
+    .then(function(token) {
       document.getElementById('recaptchaResponse').value = token; // add token to form's hidden element
 
       // pass token to backend script for verification, using ajax
@@ -16,31 +17,20 @@ $(function() {
       },function(result){
         if (result.success){
           mail_sender_url = "mail/contact_me2.php";
+          console.log("result.success")
         }else{
           mail_sender_url = "test";
+          console.log("result NOT success")
         }
         // captcha_result = result;
       });
-
-      // if reCAPTCHA result is negative, then won't initiate the contact_me.php
-
-      // if (captcha_result === undefined ){
-      //    //alert("captcha_result not defined!");
-      // }else if (captcha_result.success){
-      //   mail_sender_url = "mail/contact_me2.php"
-      //   alert("mail_sender_url set");
-      // }else{
-      //   alert("mail_sender_url NOT set!");
-      //   mail_sender_url = "test";
-      // }
-
-
-    });
+    })
+    .then(formValidation); // after getting the recaptcha validation, then call the original formValidation
   });
 
 
-
-  $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
+// vicmod: creat a var 'formValidation' to hold the original function, and then chain it after recaptcha.
+var formValidation = $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function($form, event, errors) {
       // additional error messages or events
@@ -54,31 +44,6 @@ $(function() {
       var message = $("textarea#message").val();
       var firstName = name; // For Success/Failure Message
 
-      // //vicmod
-      // var sitekey = $("#sitekey").val();  // grap sitekey from hidden element, from constant.php
-      // var captcha_result;
-      //
-      // grecaptcha.ready(function() {
-      //   grecaptcha.execute( sitekey , {
-      //     action: 'contact'
-      //   }).then(function(token) {
-      //     document.getElementById('recaptchaResponse').value = token; // add token to form's hidden element
-      //
-      //     // pass token to backend script for verification, using ajax
-      //
-      //     $.post("recaptcha/backend_validate.php", {
-      //       token: token
-      //     },function(result){
-      //       if (result.success){
-      //         // alert ("monkey");
-      //       }
-      //       captcha_result = result;
-      //     });
-      //
-      //   });
-      // });
-
-
 
       // Check for white space in name for Success/Fail message
       if (firstName.indexOf(' ') >= 0) {
@@ -86,6 +51,9 @@ $(function() {
       }
       $this = $("#sendMessageButton");
       $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
+
+      console.log( "mail_sender_url : " + mail_sender_url);
+
       $.ajax({
         url: mail_sender_url,
         type: "POST",
@@ -98,7 +66,7 @@ $(function() {
         cache: false,
         success: function() {
           // Success message
-          $('.prompt_box > .alert-success ').append(mail_sender_url);
+          $('.prompt_box').append("\n Success " + mail_sender_url);
           $('#success').html("<div class='alert alert-success'>");
           $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
             .append("</button>");
@@ -111,7 +79,7 @@ $(function() {
         },
         error: function() {
           // Fail message
-          $('.prompt_box > .alert-danger').append(mail_sender_url);
+          $('.prompt_box').append(" \n failed " + mail_sender_url);
           $('#success').html("<div class='alert alert-danger'>");
           $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
             .append("</button>");
