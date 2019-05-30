@@ -1,20 +1,25 @@
 $(function() {
-  //vicmod
-  var sitekey = $("#sitekey").val();  // grap sitekey from hidden element, from constant.php
-  var captcha_result;
-  var mail_sender_url ="";
+
+  var sitekey = $("#sitekey").val();  // grap sitekey from hidden element in index.php, from constant.php
+  var mail_sender_url = ""; // path for the php that actually executing the mail sending.
 
   grecaptcha.ready(function() {
     grecaptcha.execute( sitekey , {
       action: 'contact'
     })
     .then(function(token) {
+
+      /**/
       document.getElementById('recaptchaResponse').value = token; // add token to form's hidden element
+
+      console.log(" b4 posting to backend script");
 
       // pass token to backend script for verification, using ajax
       $.post("recaptcha/backend_validate.php", {
         token: token
       },function(result){
+        console.log("start eval results");
+
         if (result.success){
           mail_sender_url = "mail/contact_me2.php";
           console.log("result.success")
@@ -22,7 +27,6 @@ $(function() {
           mail_sender_url = "test";
           console.log("result NOT success")
         }
-        // captcha_result = result;
       });
     })
     .then(formValidation); // after getting the recaptcha validation, then call the original formValidation
