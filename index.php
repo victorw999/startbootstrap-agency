@@ -750,7 +750,7 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome!</div>
-        <div class="intro-heading text-uppercase">AKWA 20.05.08 a deploy bluehost</div>
+        <div class="intro-heading text-uppercase">AKWA 20.05.08 b deploy bluehost</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
       </div>
     </div>
