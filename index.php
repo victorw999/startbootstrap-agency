@@ -1,4 +1,5 @@
 <?php
+  // load Google Recaptcha's contant keys
   require('recaptcha/constant.php');
 ?>
 
@@ -10,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="web developer portfolio">
   <meta name="author" content="victor">
-  <title>Portfolio</title>
+  <title>Victor's Portfolio</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -750,7 +751,7 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome!</div>
-        <div class="intro-heading text-uppercase">AKWA 20.05.08 b deploy bluehost</div>
+        <div class="intro-heading text-uppercase">AKWA 20.05.09 b deploy bluehost</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
       </div>
     </div>
@@ -1432,20 +1433,23 @@
 
             <!-- google reCAPTCHA -->
             <style>
-            .prompt {
+            /* .prompt {
               width: 100%;
             }
 
             .prompt-label,
             .prompt_box {
               color: white;
-            }
+            } */
             </style>
-            <span class="prompt-label">#recaptchaResponse:</span> <br>
-            <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
-            <span class="prompt-label">#sitekey:</span> <br>
-            <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY; ?>"><br>
-            <div class="prompt_box">prompt_box: </div>
+
+            <!-- 
+              <span class="prompt-label">#recaptchaResponse:</span> <br>
+              <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
+              <span class="prompt-label">#sitekey:</span> <br>
+              <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php //echo SITE_KEY;?>"><br>
+              <div class="prompt_box">prompt_box: </div>  
+            -->
             <!--END: google reCAPTCHA -->
 
           </form>
