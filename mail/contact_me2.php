@@ -72,7 +72,12 @@ $email_body .= "\n\n";
  *
  */
 
-//reCAPTCHA validation
+
+ //reCAPTCHA validation
+ /**
+  *  this segment is unnecessary,
+  *  bluehost can send mail with current config.
+  */
 if (isset($_POST['recaptcha_response'])) {
     // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
     // Build POST request:

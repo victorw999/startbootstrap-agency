@@ -1443,12 +1443,15 @@
             }
             </style>
 
+            <!-- even it can't be seen, but when inspect, the SITE_KEY can still be seen -->
+            <div class="" style='display:none;'>
+              <span class="prompt-label">#recaptchaResponse:</span> <br>
+              <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
+              <span class="prompt-label">#sitekey:</span> <br>
+              <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY;?>"><br>
+              <div class="prompt_box">prompt_box: </div>
+            </div>
 
-            <span class="prompt-label">#recaptchaResponse:</span> <br>
-            <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
-            <span class="prompt-label">#sitekey:</span> <br>
-            <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY;?>"><br>
-            <div class="prompt_box">prompt_box: </div>
 
             <!--END: google reCAPTCHA -->
 
