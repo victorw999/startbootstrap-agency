@@ -1433,23 +1433,23 @@
 
             <!-- google reCAPTCHA -->
             <style>
-            /* .prompt {
+            .prompt {
               width: 100%;
             }
 
             .prompt-label,
             .prompt_box {
               color: white;
-            } */
+            }
             </style>
 
-            <!-- 
-              <span class="prompt-label">#recaptchaResponse:</span> <br>
-              <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
-              <span class="prompt-label">#sitekey:</span> <br>
-              <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php //echo SITE_KEY;?>"><br>
-              <div class="prompt_box">prompt_box: </div>  
-            -->
+
+            <span class="prompt-label">#recaptchaResponse:</span> <br>
+            <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
+            <span class="prompt-label">#sitekey:</span> <br>
+            <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY;?>"><br>
+            <div class="prompt_box">prompt_box: </div>
+
             <!--END: google reCAPTCHA -->
 
           </form>
@@ -1467,11 +1467,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2018</span>
+          <span class="copyright">Copyright &copy; findvictor.com</span>
         </div>
         <div class="col-md-4">
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
+              <a target="_blank" href="https://github.com/victorw999">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+            <!-- <li class="list-inline-item">
               <a href="#">
                 <i class="fa fa-twitter"></i>
               </a>
@@ -1485,7 +1490,7 @@
               <a href="#">
                 <i class="fa fa-linkedin"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="col-md-4">
@@ -1725,6 +1730,8 @@
       </div>
     </div>
   </div>
+
+  <!-- END: Portfolio Modals -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

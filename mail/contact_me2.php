@@ -1,20 +1,28 @@
+<!-- 
+  it's possible that this code's reCaptchar is based on this ref:
+  REF:https://codeforgeek.com/google-recaptcha-v3-tutorial/
+ -->
+
 <?php
+//import auxilery functions
+include  'func.php' ;
 
-function debugToBrowserConsole ( $msg ) {
-  $msg = str_replace('"', "''", $msg);  # weak attempt to make sure there's not JS breakage
-  echo "<script>console.debug( \"PHP DEBUG: $msg\" );</script>";
-}
 
+/**
+ * original code block
+ *
+ * REF: https://github.com/BlackrockDigital/startbootstrap-agency/blob/v4.1.1/mail/contact_me.php
+ */
 // Check for empty fields
-if(empty($_POST['name'])      ||
+if (empty($_POST['name'])      ||
    empty($_POST['email'])     ||
    empty($_POST['phone'])     ||
    empty($_POST['message'])   ||
-   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
-   {
-     echo "No arguments Provided!";
-     return false;
-   }
+   !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    echo "No arguments Provided!";
+    return false;
+}
+
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
@@ -28,72 +36,81 @@ $email_body = "You have received a new message from your website contact form.\n
 $headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
 
+/**
+ * END: original code block
+ */
 
-// Log File Setup
-function logMSG( $content ){
-  $time = date('m/d/Y h:i:s a', time());
-  return $time . ": " . $content . "\n\n";
-}
-$file = "log.txt";
-$log_handle = fopen($file, 'a') or die('cannot open: ' .$file);
-
-
-
-
-
-
+// add timestamp to email
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
 $email_body .= "\n\n $date \n\n";
 
-echo '<script type="text/javascript">
-        console.log("start verifying logic.....");
-      </script>';
-
-debugToBrowserConsole("conosle: start verifying logic.....");
-fwrite($log_handle, logMSG("log:  start loging ")); //Log File
+// log debug info into a file
+$file = "log.txt";
+$log_handle = fopen($file, 'a') or die('cannot open: ' .$file);
 
 
+//Log File
+fwrite($log_handle, logMSG("log:  start loging "));
 $recaptcha_response = $_POST['recaptcha_response'];
-fwrite($log_handle, logMSG( $recaptcha_response )); //Log File
-fwrite($log_handle, logMSG(" $recaptcha_response ")); //Log File
+
+//Log File
+fwrite($log_handle, logMSG("recaptcha_response: " . $recaptcha_response)); //Log File
 
 $email_body .= "start verifying logic... \n\n";
 $email_body .= "\n\n";
 
-if (isset($_POST['recaptcha_response'])){
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
-  // Build POST request:
-  $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-  $recaptcha_secret = SECRET_KEY;
-  $recaptcha_response = $_POST['recaptcha_response'];
 
-  fwrite($log_handle, logMSG( $recaptcha_response )); //Log File
+/**
+ *  1.
+ *  just realized that "recaptcha_response" is not in POST's data.
+ *  if "recaptcha_response" is needed, try add it in the ajax func's data
+ *
+ *  2.
+ *  still not sure which template i was following.
+ *  try directly send mail see if it'll work
+ *
+ */
 
-  $email_body .= "recaptcha_response:  $recaptcha_response ";
-  $email_body .= "\n";
+//reCAPTCHA validation
+if (isset($_POST['recaptcha_response'])) {
+    // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = SECRET_KEY;
+    $recaptcha_response = $_POST['recaptcha_response'];
 
-  // Make and decode POST request:
-  $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-  $recaptcha = json_decode($recaptcha);
+    fwrite($log_handle, logMSG($recaptcha_response)); //Log File
 
-  // Take action based on the score returned:
-  if ($recaptcha->score >= 0.5) {
-      // Verified - send email
-      $email_body .= "\n\n Verified - send email. \n\n";
-  } else {
-      // Not verified - show form error
-      $email_body .= "\n\n Not verified \n\n";
-  }
+    $email_body .= "recaptcha_response:  $recaptcha_response ";
+    $email_body .= "\n";
+
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    // Take action based on the score returned:
+    if ($recaptcha->score >= 0.5) {
+        // Verified - send email
+        $email_body .= "\n\n Verified - send email. \n\n";
+    } else {
+        // Not verified - show form error
+        $email_body .= "\n\n Not verified \n\n";
+    }
 }
 
-// mail($to,$email_subject,$email_body,$headers);
+fwrite($log_handle, logMSG("start mail() ... ")); //Log File
 
+$success = mail($to, $email_subject, $email_body, $headers);
+fwrite($log_handle, logMSG($success)); //Log File
+if (!$success) {
+    $errorMessage = error_get_last()['message'];
+    fwrite($log_handle, logMSG($errorMessage)); //Log File
+}
 
+ 
 
 
 fclose($log_handle); // Log File Setup
 
 return true;
-
-?>

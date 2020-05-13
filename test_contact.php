@@ -1,7 +1,7 @@
 <?php
-require('contact_captcha_4/constant.php');
+require 'contact_captcha_4/constant.php';
 
- ?>
+?>
 
 
 
@@ -24,7 +24,8 @@ require('contact_captcha_4/constant.php');
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
@@ -36,18 +37,18 @@ require('contact_captcha_4/constant.php');
   <!-- google re-captcha -->
   <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
   <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute('<?php echo SITE_KEY; ?>', {
-        action: 'contact'
-      }).then(function(token) {
+  grecaptcha.ready(function() {
+    grecaptcha.execute('<?php echo SITE_KEY; ?>', {
+      action: 'contact'
+    }).then(function(token) {
 
-        var recaptchaResponse = document.getElementById('recaptchaResponse');
+      var recaptchaResponse = document.getElementById('recaptchaResponse');
 
-        recaptchaResponse.value = token;
-        console.log(recaptchaResponse);
+      recaptchaResponse.value = token;
+      console.log(recaptchaResponse);
 
-      });
     });
+  });
   </script>
 
 </head>
@@ -70,28 +71,33 @@ require('contact_captcha_4/constant.php');
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
+                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required
+                    data-validation-required-message="Please enter your name.">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
+                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required
+                    data-validation-required-message="Please enter your email address.">
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
+                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required
+                    data-validation-required-message="Please enter your phone number.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
+                  <textarea class="form-control" id="message" placeholder="Your Message *" required
+                    data-validation-required-message="Please enter a message."></textarea>
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send
+                  Message</button>
               </div>
             </div>
 

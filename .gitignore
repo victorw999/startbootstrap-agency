@@ -3,8 +3,15 @@ node_modules
 .tmp
 
 # hide google recaptcha's keys
-recaptcha/constant.php
+**/constant.php
 
 # need to hide all "constant.php". there dir are for testing captcha
 contact_captcha/
 contact_captcha_4/
+
+# diagrams
+**/*.ai
+
+# debug files
+phpinfo.php
+**/log.txt
