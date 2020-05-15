@@ -1,20 +1,41 @@
+/** 
+ *    "js/contact_me.js"    original templates:
+ *    https://github.com/BlackrockDigital/startbootstrap-agency/blob/v4.1.1/js/contact_me.js
+ 
+ *    originally only has 2 steps:
+ *    1. validate form inputs, if success, then 
+ *    2. post to backend 'mail.contact_me.php' to mail()
+ * 
+ *    I added the Google Recaptcha V3. so it has 3 steps:
+ *    1. use "SITE_KEY" to get "token", 
+ *        then send "token" to "backend_validate.php"
+ *        depending on the returned value, assign the "mail_sender_url".
+ *        which will be used on step 3
+ *    2. validate form inputs, if success, then 
+ *    3. post to backend 'mail.contact_me.php' to mail()
+ *   
+ */
+
 $(function () {
-  // grap sitekey from hidden element in index.php, from constant.php
+  // grap sitekey from hidden input in index.php, from constant.php
   var sitekey = $("#sitekey").val();
   // path for the php that actually executing the mail sending.
   var mail_sender_url = "";
 
+  // captcha REF: https://codeforgeek.com/google-recaptcha-v3-tutorial/
   grecaptcha.ready(function () {
     grecaptcha
       .execute(sitekey, {
         action: "contact",
       })
       .then(function (token) {
-        /**/
-        document.getElementById("recaptchaResponse").value = token;
-        // add token to form's hidden element
-
-        console.log(" b4 posting to backend script");
+        /*  20.0514 
+            currently there's no need to pass the token back to DOM
+            (i think that was the tutorial_4's method, we're using tutorial_3's method
+            The token will be directly passed form contact_me.js
+            to backend_validate.php for validation
+        */
+        // document.getElementById("recaptchaResponse").value = token;
 
         // pass token to backend script for verification using ajax
         $.post(
@@ -23,27 +44,34 @@ $(function () {
             token: token,
           },
           function (result) {
-            console.log("start eval results");
-
             if (result.success) {
-              mail_sender_url = "mail/contact_me2.php";
-              console.log("result.success");
+              mail_sender_url = "mail/contact_me.php";
+              (() => {
+                // using a callback to log out console
+                // REF: https://stackoverflow.com/questions/16987811/why-cant-i-return-data-from-post-jquery
+                console.log("result.success");
+              })();
             } else {
-              mail_sender_url = "test";
-              console.log("result NOT success");
+              /**
+               * since there's no way to create a result failure in reCaptchar v3
+               * the execution can't come into this condition
+               * i can't test what'll happen when recaptcha failed
+               */
+              mail_sender_url = "mail/contact_no.php";
+              (() => {
+                console.log("result NOT success");
+              })();
             }
           }
         );
       })
       .then(formValidation);
-    // after getting the recaptcha validation,
-    // then call the original formValidation
+    // after getting the recaptcha validation, then call the original "formValidation()"
   });
 
-  // vicmod: creat a var 'formValidation' to hold the original function,
-  // and then chain it after recaptcha.
+  // vicmod: creat a var 'formValidation' to hold the original function, and then chain it after recaptcha.
   var formValidation = $(
-    "#contactForm input,#contactForm textarea"
+    "#contactForm input,#contactForm textarea" // grab DOM's input to verify
   ).jqBootstrapValidation({
     preventSubmit: true,
     submitError: function ($form, event, errors) {
@@ -79,7 +107,7 @@ $(function () {
         cache: false,
         success: function () {
           // Success message
-          $(".prompt_box").append("\n Success " + mail_sender_url);
+          // $(".prompt_box").append("\n Success " + mail_sender_url); // (vicmod debugging message send to DOM)
           $("#success").html("<div class='alert alert-success'>");
           $("#success > .alert-success")
             .html(
@@ -95,7 +123,8 @@ $(function () {
         },
         error: function () {
           // Fail message
-          $(".prompt_box").append(" \n failed " + mail_sender_url);
+          // $(".prompt_box").append(" \n failed " + mail_sender_url); //(vicmod debugging message send to DOM)
+
           $("#success").html("<div class='alert alert-danger'>");
           $("#success > .alert-danger")
             .html(

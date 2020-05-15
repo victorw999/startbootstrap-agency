@@ -1,6 +1,6 @@
 <?php
-  // load Google Recaptcha's contant keys
-  require('recaptcha/constant.php');
+// load Google Recaptcha's contant keys
+require 'recaptcha/constant.php';
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +34,7 @@
   <link rel="icon" href="logo.ico">
 
   <!-- google re-captcha -->
+  <!-- load Google Recaptcha V3 API, so that "grecaptcha.execute()"" can be used below in "js/contact_me.js" -->
   <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
 
 </head>
@@ -1432,27 +1433,12 @@
             </div>
 
             <!-- google reCAPTCHA -->
-            <style>
-            .prompt {
-              width: 100%;
-            }
-
-            .prompt-label,
-            .prompt_box {
-              color: white;
-            }
-            </style>
-
-            <!-- even it can't be seen, but when inspect, the SITE_KEY can still be seen -->
-            <div class="" style='display:none;'>
-              <span class="prompt-label">#recaptchaResponse:</span> <br>
-              <input class="prompt" type="text" name="recaptcha_response" id="recaptchaResponse"><br>
-              <span class="prompt-label">#sitekey:</span> <br>
-              <input class="prompt" type="text" name="sitekey" id="sitekey" value="<?php echo SITE_KEY;?>"><br>
-              <div class="prompt_box">prompt_box: </div>
+            <!--
+              SITE_KEY is a public key, it's ok to appear in inspector
+              -->
+            <div style='display:none'>
+              <input class="prompt" type="hidden" name="sitekey" id="sitekey" value="<?php echo SITE_KEY; ?>"><br>
             </div>
-
-
             <!--END: google reCAPTCHA -->
 
           </form>

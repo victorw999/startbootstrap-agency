@@ -14,4 +14,9 @@ contact_captcha_4/
 
 # debug files
 phpinfo.php
-**/log.txt
+
+# log.txt in all dir
+**/log.txt 
+
+#coding backup files, that has -bk- in its name
+*-bk-*.*
