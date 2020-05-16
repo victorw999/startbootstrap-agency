@@ -29,10 +29,12 @@ $phone = strip_tags(htmlspecialchars($_POST['phone']));
 $message = strip_tags(htmlspecialchars($_POST['message']));
 
 // Create the email and send the message
-$to = 'victorw@akwa.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-$email_subject = "Website Contact Form:  $name";
+$to = 'hello@findvictor.com';
+// Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
+$email_subject = "Hello from $name [FindVictor.com]";
 $email_body = "You have received a new message from your website contact form.\n\n" . "Name: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: noreply@akwa.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+$headers = "From: noreply@findvictor.com\n";
+// This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 $headers .= "Reply-To: $email_address";
 
 /**
@@ -47,9 +49,6 @@ $email_body .= "\n\n $date \n\n";
 // log debug info into a file
 $file = "log.txt";
 $log_handle = fopen($file, 'a') or die('cannot open: ' . $file);
-
-$email_body .= "start verifying logic... \n\n";
-$email_body .= "\n\n";
 
 // mail() only works on bluehost env, not local: neither on ASUS-WIN10 nor on Linda-Win7-2015
 $success = mail($to, $email_subject, $email_body, $headers);

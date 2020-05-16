@@ -11,8 +11,9 @@
  *        then send "token" to "backend_validate.php"
  *        depending on the returned value, assign the "mail_sender_url".
  *        which will be used on step 3
- *    2. validate form inputs, if success, then 
- *    3. post to backend 'mail.contact_me.php' to mail()
+ *    2. validate form inputs,    
+ *    3. if success, post to backend 'mail.contact_me.php' to mail()
+ *    4. if failed, do not call ajax(), display "captcha failed " msg
  *   
  */
 
@@ -29,14 +30,6 @@ $(function () {
         action: "contact",
       })
       .then(function (token) {
-        /*  20.0514 
-            currently there's no need to pass the token back to DOM
-            (i think that was the tutorial_4's method, we're using tutorial_3's method
-            The token will be directly passed form contact_me.js
-            to backend_validate.php for validation
-        */
-        // document.getElementById("recaptchaResponse").value = token;
-
         // pass token to backend script for verification using ajax
         $.post(
           "recaptcha/backend_validate.php",
@@ -47,16 +40,11 @@ $(function () {
             if (result.success) {
               mail_sender_url = "mail/contact_me.php";
               (() => {
-                // using a callback to log out console
+                // using a callback to log to console
                 // REF: https://stackoverflow.com/questions/16987811/why-cant-i-return-data-from-post-jquery
                 console.log("result.success");
               })();
             } else {
-              /**
-               * since there's no way to create a result failure in reCaptchar v3
-               * the execution can't come into this condition
-               * i can't test what'll happen when recaptcha failed
-               */
               mail_sender_url = "mail/contact_no.php";
               (() => {
                 console.log("result NOT success");
@@ -95,59 +83,78 @@ $(function () {
 
       console.log("mail_sender_url : " + mail_sender_url);
 
-      $.ajax({
-        url: mail_sender_url,
-        type: "POST",
-        data: {
-          name: name,
-          phone: phone,
-          email: email,
-          message: message,
-        },
-        cache: false,
-        success: function () {
-          // Success message
-          // $(".prompt_box").append("\n Success " + mail_sender_url); // (vicmod debugging message send to DOM)
-          $("#success").html("<div class='alert alert-success'>");
-          $("#success > .alert-success")
-            .html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-            )
-            .append("</button>");
-          $("#success > .alert-success").append(
-            "<strong>Your message has been sent. </strong>"
-          );
-          $("#success > .alert-success").append("</div>");
-          //clear all fields
-          $("#contactForm").trigger("reset");
-        },
-        error: function () {
-          // Fail message
-          // $(".prompt_box").append(" \n failed " + mail_sender_url); //(vicmod debugging message send to DOM)
-
-          $("#success").html("<div class='alert alert-danger'>");
-          $("#success > .alert-danger")
-            .html(
-              "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
-            )
-            .append("</button>");
-          $("#success > .alert-danger").append(
-            $("<strong>").text(
-              "Sorry " +
-                firstName +
-                ", it seems that my mail server is not responding. Please try again later!"
-            )
-          );
-          $("#success > .alert-danger").append("</div>");
-          //clear all fields
-          $("#contactForm").trigger("reset");
-        },
-        complete: function () {
-          setTimeout(function () {
-            $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-          }, 1000);
-        },
-      });
+      /**
+       * vicmod:
+       * decide id call ajax() based on reCAPTCHA result
+       */
+      if (mail_sender_url === "mail/contact_me.php") {
+        $.ajax({
+          url: mail_sender_url,
+          type: "POST",
+          data: {
+            name: name,
+            phone: phone,
+            email: email,
+            message: message,
+          },
+          cache: false,
+          success: function () {
+            // Success message
+            $("#success").html("<div class='alert alert-success'>");
+            $("#success > .alert-success")
+              .html(
+                "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+              )
+              .append("</button>");
+            $("#success > .alert-success").append(
+              "<strong>Your message has been sent. </strong>"
+            );
+            $("#success > .alert-success").append("</div>");
+            //clear all fields
+            $("#contactForm").trigger("reset");
+          },
+          error: function () {
+            // Fail message
+            $("#success").html("<div class='alert alert-danger'>");
+            $("#success > .alert-danger")
+              .html(
+                "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+              )
+              .append("</button>");
+            $("#success > .alert-danger").append(
+              $("<strong>").text(
+                "Sorry " +
+                  firstName +
+                  ", it seems that my mail server is not responding. Please try again later!"
+              )
+            );
+            $("#success > .alert-danger").append("</div>");
+            //clear all fields
+            $("#contactForm").trigger("reset");
+          },
+          complete: function () {
+            setTimeout(function () {
+              $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
+            }, 1000);
+          },
+        }); // AJAX END
+      } else {
+        /**
+         *  vicmod: reCAPTCHA failed: display "Captcha Fail" in DOM
+         */
+        $("#success").html("<div class='alert alert-danger'>");
+        $("#success > .alert-danger")
+          .html(
+            "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;"
+          )
+          .append("</button>");
+        $("#success > .alert-danger").append(
+          $("<strong>").text("Captcha Failed!")
+        );
+        $("#success > .alert-danger").append("</div>");
+        //clear all fields
+        $("#contactForm").trigger("reset");
+      }
     },
     filter: function () {
       return $(this).is(":visible");
