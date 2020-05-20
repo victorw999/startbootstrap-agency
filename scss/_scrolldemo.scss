@@ -1,31 +1,39 @@
-/* scrolldemo_boxheight */
+/* 
+  scrolldemo_boxheight 
+  CSS: scss/_scrolldemo.scss
+  REF: https://jsfiddle.net/victorwakwa/su35wnxz/
+  INSPIRATION DEMO: http://preview.themeforest.net/item/fastest-magento-2-themes-magento-212-magento-19-multipurpose-responsive-theme-10-design/full_screen_preview/16178989
+  YOUTUBE: https://www.youtube.com/watch?v=mCwkbiEywFY
+*/
 
-  $box_max_width: 400px;
-  $sd_height: 262px; //$sd_height: $box_max_width / 1.33;
-  $scroll_duration: 5s;
+$box_max_width: 400px;
+$sd_height: 262px; //$sd_height: $box_max_width / 1.33;
+$scroll_duration: 1s; // speed of the scroll
 
-  .sd_wrapper {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    height: $sd_height;
-    max-height: $sd_height;
-  }
-  .sd_box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: $box_max_width; width:100%; 
-    max-height: $sd_height; height:$sd_height;
-    background-size: cover;
-    border: 5px solid #fff;
-    // box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
-    // box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-    transition: $scroll_duration;
-    background-position: top;
-  }
+.sd_wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: $sd_height;
+  max-height: $sd_height;
+}
+.sd_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: $box_max_width;
+  width: 100%;
+  max-height: $sd_height;
+  height: $sd_height;
+  background-size: cover;
+  border: 5px solid #fff;
+  // box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  transition: $scroll_duration;
+  background-position: top;
+}
 
-  .sd_box:hover {
-    background-position: bottom;
-  }
+.sd_box:hover {
+  background-position: bottom;
+}
