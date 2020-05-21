@@ -39,16 +39,23 @@ $(function () {
           function (result) {
             if (result.success) {
               mail_sender_url = "mail/contact_me.php";
-              (() => {
-                // using a callback to log to console
-                // REF: https://stackoverflow.com/questions/16987811/why-cant-i-return-data-from-post-jquery
-                console.log("result.success");
-              })();
+
+              /**
+               * 20.0520
+               * below debugging codes are causing issue with gulp-uglify,
+               * hence commented out
+               * if need to debug, then uncomment
+               */
+              // (() => {
+              //   // using a callback to log to console
+              //   // REF: https://stackoverflow.com/questions/16987811/why-cant-i-return-data-from-post-jquery
+              //   console.log("result.success");
+              // })();
             } else {
               mail_sender_url = "mail/contact_no.php";
-              (() => {
-                console.log("result NOT success");
-              })();
+              // (() => {
+              //   console.log("result NOT success");
+              // })();
             }
           }
         );

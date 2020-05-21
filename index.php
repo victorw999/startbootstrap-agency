@@ -24,7 +24,9 @@ require 'recaptcha/constant.php';
     type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template
+    gulp to complie scss files in scss/
+  -->
   <link href="css/agency.min.css" rel="stylesheet">
 
   <!-- custom icoMoon icons  -->

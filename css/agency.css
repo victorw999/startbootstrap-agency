@@ -702,7 +702,13 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #137ec0;
 }
 
-/* scrolldemo_boxheight */
+/* 
+  scrolldemo_boxheight 
+  CSS: scss/_scrolldemo.scss
+  REF: https://jsfiddle.net/victorwakwa/su35wnxz/
+  INSPIRATION DEMO: http://preview.themeforest.net/item/fastest-magento-2-themes-magento-212-magento-19-multipurpose-responsive-theme-10-design/full_screen_preview/16178989
+  YOUTUBE: https://www.youtube.com/watch?v=mCwkbiEywFY
+*/
 .sd_wrapper {
   margin: 0;
   padding: 0;
@@ -722,7 +728,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   height: 262px;
   background-size: cover;
   border: 5px solid #fff;
-  transition: 5s;
+  transition: 1s;
   background-position: top;
 }
 
