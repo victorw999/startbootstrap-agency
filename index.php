@@ -388,9 +388,9 @@ require 'recaptcha/constant.php';
                   border: none !important;
                 }
                 </style>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/xh8hlcQzXGM?rel=0;&autoplay=1"
-                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
+                <iframe id="iframe_vid_warehouse" width="560" height="315"
+                  src="https://www.youtube.com/embed/xh8hlcQzXGM?rel=0;&autoplay=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
                 <!--
                   END VIDEO
@@ -455,9 +455,9 @@ require 'recaptcha/constant.php';
                   border: none !important;
                 }
                 </style>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/JtNEsZ8G8Vw?rel=0;&autoplay=1"
-                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
+                <iframe id="iframe_vid_akwa" width="560" height="315"
+                  src="https://www.youtube.com/embed/JtNEsZ8G8Vw?rel=0;&autoplay=1" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
                 <!--
                   END VIDEO
@@ -521,9 +521,7 @@ require 'recaptcha/constant.php';
 
                 <!-- Scrollable Thumbnail -->
                 <div class="sd_wrapper">
-                  <div class="sd_box" style="
-                    background-image: url(img/scrolldemo/scroll/icantoo.jpg);
-                  "></div>
+                  <div class="sd_box" style="background-image: url(img/scrolldemo/scroll/icantoo.jpg);"></div>
                 </div>
 
                 <p>
@@ -706,7 +704,6 @@ require 'recaptcha/constant.php';
                   Close
                 </button>
 
-
               </div>
             </div>
           </div>
@@ -714,9 +711,6 @@ require 'recaptcha/constant.php';
       </div>
     </div>
   </div>
-
-
-
   <!-- END: Portfolio Modals -->
 
   <!-- Bootstrap core JavaScript -->
@@ -740,6 +734,9 @@ require 'recaptcha/constant.php';
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
+
+  <!-- stop video automatically when close the modal -->
+  <script src="js/modal_fix.js"></script>
 
   <script>
 
