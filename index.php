@@ -57,18 +57,14 @@ require 'recaptcha/constant.php';
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#filter_gallery">Portfolio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
@@ -93,7 +89,6 @@ require 'recaptcha/constant.php';
   </header>
 
 
-
   <!-- FILTER GALLERY -->
   <section class="bg-light" id="filter_gallery">
     <div class="flex container">
@@ -107,16 +102,18 @@ require 'recaptcha/constant.php';
       <!-- #2 https://codepen.io/victorw999/pen/mggqPM -->
       <div id="gallery_menu" class="wrapper">
         <ul class="">
-          <li data-filter="all" class="active">
+          <li data-filter=".vicproj" data-mixitup-control class="active">
             <a href="#"><span class="textlink">ALL</span> <span class="icon_svg icon-all"></span> </a> </li>
-          <li data-filter=".shopify">
+          <li data-filter=".react" data-mixitup-control>
+            <a href="#"><span class="textlink">REACT</span>
+              <span class="icon_svg icon-react"></span></a></li>
+          <li data-filter=".shopify" data-mixitup-control>
             <a href="#"><span class="textlink">SHOPIFY</span> <span class="icon_svg icon-shopify "></span> </a></li>
-          <li data-filter=".magento">
+          <li data-filter=".magento" data-mixitup-control>
             <a href="#"><span class="textlink">MAGENTO</span> <span class="icon_svg icon-magento"></span> </a></li>
-          <li data-filter=".react">
-            <a href="#"><span class="textlink">REACT</span> <span class="icon_svg icon-react"></span></a></li>
-          <li data-filter=".bootstrap">
-            <a href="#"><span class="textlink">BOOTSTRAP</span> <span class="icon_svg icon-bootstrap"></span> </a></li>
+
+          <!-- <li data-filter=".bootstrap">
+            <a href="#"><span class="textlink">BOOTSTRAP</span> <span class="icon_svg icon-bootstrap"></span> </a></li> -->
           <li class="slide"></li>
         </ul>
       </div> <!-- #gallery_menu -->
@@ -125,36 +122,27 @@ require 'recaptcha/constant.php';
         <!-- mixitup needs ".container" to work -->
 
         <!--
-          SCROLL THUMB
+          WAREHOUSE
          -->
-        <div class="mix shopify col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#modalpopup_akwa">
+        <div class="mix react vicproj col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#modalpopup_warehouse">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
               </div>
             </div>
-
-            <!-- <img class="img-fluid" src="img/portfolio/websites/aflex_debut.jpg" alt=""> -->
-            <div class="sd_wrapper">
-              <div class="sd_box" style="background-image:url(img/scrolldemo/scroll/akwa.jpg)">
-              </div>
-            </div>
-
+            <img class="img-fluid" src="img/portfolio/websites/warehouse.jpg" alt="">
           </a>
           <div class="portfolio-caption">
-            <h4>akwa.com</h4>
-            <p class="text-muted">
-              Magento 1&2, JS,
-              PHP, ASP
-            </p>
+            <h4>Warehouse</h4>
+            <p class="text-muted">React, Redux, Firebase, Materialize</p>
           </div>
         </div>
 
         <!--
           AKWA
         -->
-        <div class="mix magento col-md-4 col-sm-6 portfolio-item">
+        <div class="mix magento vicproj col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" data-toggle="modal" href="#modalpopup_akwa">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -166,7 +154,7 @@ require 'recaptcha/constant.php';
           <div class="portfolio-caption">
             <h4>AKWA</h4>
             <p class="text-muted">
-              Magento 1&2, JS,
+              Magento, JS, CSS
               PHP, ASP
             </p>
           </div>
@@ -175,7 +163,7 @@ require 'recaptcha/constant.php';
         <!--
           ICANTOO
          -->
-        <div class="mix magento col-md-4 col-sm-6 portfolio-item">
+        <div class="mix magento vicproj col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" data-toggle="modal" href="#modalpopup_ic2">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -187,7 +175,7 @@ require 'recaptcha/constant.php';
           <div class="portfolio-caption">
             <h4>iCantoo</h4>
             <p class="text-muted">
-              Magento 1&2, JS,
+              Magento, JS, CSS
               PHP, ASP
             </p>
           </div>
@@ -196,7 +184,7 @@ require 'recaptcha/constant.php';
         <!--
           AFLEX DEBUT
          -->
-        <div class="mix shopify col-md-4 col-sm-6 portfolio-item">
+        <div class="mix shopify vicproj col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" data-toggle="modal" href="#modalpopup_debut">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -214,7 +202,7 @@ require 'recaptcha/constant.php';
         <!--
           AFLEX FASHIONOPLOSIM
          -->
-        <div class="mix shopify   col-md-4 col-sm-6 portfolio-item">
+        <div class="mix shopify  vicproj col-md-4 col-sm-6 portfolio-item">
           <a class="portfolio-link" data-toggle="modal" href="#modalpopup_fashion">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -232,8 +220,8 @@ require 'recaptcha/constant.php';
         <!--
           LOVEUSA
          -->
-        <div class="mix shopify col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+        <div class="mix shopify vicproj col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#modalpopup_lua">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fa fa-plus fa-3x"></i>
@@ -247,23 +235,7 @@ require 'recaptcha/constant.php';
           </div>
         </div>
 
-        <!--
-          WAREHOUSE
-         -->
-        <div class="mix bootstrap col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#modalpopup_warehouse">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Warehouse</h4>
-            <p class="text-muted">React, Firebase, Material</p>
-          </div>
-        </div>
+
       </div> <!-- .row.mixitup_content -->
     </div> <!-- .container -->
   </section>
@@ -385,9 +357,75 @@ require 'recaptcha/constant.php';
 
   <!-- Modals popups-->
 
-
   <!--
-      MODAL POPUP 1
+      MODAL POPUP
+      WAREHOUSE
+  -->
+  <div class="portfolio-modal modal fade" id="modalpopup_warehouse" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Warehouse App</h2>
+                <p class="item-intro text-muted">
+                  Warehouse Management System - A Realtime react web app for coordinate and streamline warehouse
+                  shipping.</p>
+                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt=""> -->
+                <!--
+                  VIDEO
+                -->
+                <style>
+                #player .html5-video-player {
+                  background-color: #ffffff !important;
+                  border: none !important;
+                }
+                </style>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/xh8hlcQzXGM?rel=0;&autoplay=1"
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+                <!--
+                  END VIDEO
+                -->
+
+                <ul class="list-inline text-left">
+                  <h5>Features:</h5>
+                  <li>Track workers task duration</li>
+                  <li>Realtime inspection by supervisor</li>
+                  <li>Realtime inventory alert </li>
+                  <li>Worker efficiency report </li>
+                </ul>
+                <ul class="list-inline text-left">
+                  <h5>Technology:</h5>
+                  <li>React, Redux </li>
+                  <li>Materialize | Mobile-first, Material Design</li>
+                  <li>Firebase | User accounts & authentication</li>
+                  <li>Firestore | NoSQL Database</li>
+                </ul>
+
+                <a class="btn btn-primary" href="https://warehouse.findvictor.com/" target="_blank">Demo Site</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
+                  <i class="fa fa-times"></i>
+                  Close
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+      MODAL POPUP
       AKWA
   -->
   <div class="portfolio-modal modal fade" id="modalpopup_akwa" tabindex="-1" role="dialog" aria-hidden="true">
@@ -405,19 +443,52 @@ require 'recaptcha/constant.php';
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">akwa.com</h2>
-                <p class="item-intro text-muted">Apparel Wholesale</p>
+                <p class="item-intro text-muted">Wholesale Made in USA Apparel </p>
                 <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt=""> -->
-                <p>A wholesale portal for clients to see updates of inventory, price, orders, tracking, promotion, etc.
+
+                <!--
+                  VIDEO
+                -->
+                <style>
+                #player .html5-video-player {
+                  background-color: #ffffff !important;
+                  border: none !important;
+                }
+                </style>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JtNEsZ8G8Vw?rel=0;&autoplay=1"
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+                <!--
+                  END VIDEO
+                -->
+
+                <p>Provide authenticated retailors with daily updated wholesale price, inventory, orders, tracking,
+                  promotions, sales tools.
                 </p>
+
                 <ul class="list-inline text-left">
-                  <li>CMS: Magento 1 & 2</li>
-                  <li>Frontend: CSS, Bootstrap, jQuery</li>
-                  <li>Backend: PHP, ASP, Foxpro, Remote & in-house Server</li>
-                  <li>Live Site: <a href="https:\\www.akwa.com" target="_blank">www.akwa.com</a></li>
+                  <h5>Features:</h5>
+                  <li>Client Accounts: synced with in-house ERP</li>
+                  <li>Order System: wholesale (ASP) is separated from eCommerce (magento) </li>
+                  <li>Custom Theme: look and feel fits with the corporate image: made in USA, conservative color
+                    scheme</li>
                 </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                <ul class="list-inline text-left">
+                  <h5>Technology:</h5>
+                  <li>CMS: Magento 1 & 2</li>
+                  <li>Frontend: SASS, Bootstrap, Javascript</li>
+                  <li>PHP | Shipment Tracking, sales tools, remote server</li>
+                  <li>ASP, Foxpro | Integrate with ERP, in-house server</li>
+                  <li>IIS, XAMPP | In-house server</li>
+                </ul>
+
+                <a class="btn btn-primary" href="https:\\www.akwa.com" target="_blank">Live Site</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
-                  Close Project</button>
+                  Close
+                </button>
+
               </div>
             </div>
           </div>
@@ -428,7 +499,7 @@ require 'recaptcha/constant.php';
 
 
   <!--
-    MODAL POPUP 2
+    MODAL POPUP
     ICANTOO
   -->
 
@@ -446,21 +517,36 @@ require 'recaptcha/constant.php';
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">iCantoo</h2>
-                <p class="item-intro text-muted">Apparel Wholesale</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                <p>
-                  - frontend design based on product, women resort wear
-                  A wholesale portal for clients to see updates of inventory, price, orders, tracking, promotion, etc.
+                <p class="item-intro text-muted">Wholesale Women's Resort Wear</p>
 
-                  -
+                <!-- Scrollable Thumbnail -->
+                <div class="sd_wrapper">
+                  <div class="sd_box" style="
+                    background-image: url(img/scrolldemo/scroll/icantoo.jpg);
+                  "></div>
+                </div>
+
+                <p>
+                  In addition to providing wholesale functions(same as AKWA.com), I created a custom theme(SASS, PHTML),
+                  collaborated with designers for UX/UI, implemented a calm yet playful color scheme, and minimalistic
+                  look.
                 </p>
-                <li>CMS: Magento 1 & 2</li>
-                <li>Frontend: CSS, Bootstrap, jQuery</li>
-                <li>Backend: PHP, ASP, Foxpro, Remote & in-house Server</li>
-                <li>Live Site: <a href="http:\\www.icantoo.com" target="_blank">www.icantoo.com</a></li>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                <ul class="list-inline text-left">
+                  <h5>Technology:</h5>
+                  <li>CMS: Magento 1 & 2</li>
+                  <li>Frontend: SASS, Bootstrap, Javascript</li>
+                  <li>PHP | Shipment Tracking, sales tools, remote server</li>
+                  <li>ASP, Foxpro | Integrate with ERP, in-house server</li>
+                  <li>IIS, XAMPP | In-house server</li>
+                  <!-- <li>Live Site: <a href="http:\\www.icantoo.com" target="_blank">www.icantoo.com</a></li> -->
+                </ul>
+
+                <a class="btn btn-primary" href="http:\\www.icantoo.com" target="_blank">Live Site</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
-                  Close Project</button>
+                  Close
+                </button>
+
               </div>
             </div>
           </div>
@@ -471,7 +557,7 @@ require 'recaptcha/constant.php';
 
 
   <!--
-      MODAL POPUP 3
+      MODAL POPUP
       AFLEX DEBUT
   -->
   <div class="portfolio-modal modal fade" id="modalpopup_debut" tabindex="-1" role="dialog" aria-hidden="true">
@@ -488,26 +574,31 @@ require 'recaptcha/constant.php';
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Aflex (Debut)</h2>
-                <p class="item-intro text-muted">Apparel Ecommerce</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                <p> Using the graphic designer's spec
-                  1. create look & feel mokcup based on product
-                  Modifications were made based on "Debut" theme
-                  implement designer's vision
-                  2. create modules(Liquid) for desingers
-                  to tweak minor fronend by themself.
-                  3. add more custimation modules for desinger to direct manuallate the frontend looks.
+                <p class="item-intro text-muted">eCommerce Active Wear Theme #1</p>
+                <!-- Scrollable Thumbnail -->
+                <div class="sd_wrapper">
+                  <div class="sd_box" style="
+                    background-image: url(img/scrolldemo/scroll/aflex_debut.jpg);
+                  "></div>
+                </div>
+                <p> I implemented this custom theme(SASS, Liquid, JS) to match Aflex designer's athleisure concept. Also
+                  provided section modules(Liquid) to allow designers to fine-tune in theme editor.
                 </p>
                 <ul class="list-inline text-left">
-                  <li>CMS: Shopify</li>
+                  <h5>Technology:</h5>
+                  <li>Shopify</li>
+                  <li>SASS, HTML</li>
                   <li>Base Template: "Debut"</li>
-                  <li>Liquid Node.js Html Sass</li>
-                  <li><a href="https://vzine.myshopify.com/" target="_blank">Demo Store</a></li>
-                  <li><a href="https://aflexusa.com/" target="_blank">Aflex Live Site</a></li>
+                  <li>Liquid, Theme Kit, Node.js</li>
+                  <!-- <li><a href="https://vzine.myshopify.com/" target="_blank">Demo</a></li> -->
                 </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
+
+                <a class="btn btn-primary" href="https://vzine.myshopify.com/" target="_blank">Demo Site</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
-                  Close Project</button>
+                  Close
+                </button>
+
               </div>
             </div>
           </div>
@@ -518,7 +609,7 @@ require 'recaptcha/constant.php';
 
 
   <!--
-      MODAL POPUP 4
+      MODAL POPUP
       AFLEX FASHION
   -->
   <div class="portfolio-modal modal fade" id="modalpopup_fashion" tabindex="-1" role="dialog" aria-hidden="true">
@@ -535,22 +626,33 @@ require 'recaptcha/constant.php';
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Aflex Fashionopolism</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-                  blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia
-                  expedita beatae cupiditate,
-                  maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <p class="item-intro text-muted">eCommerce Active Wear Theme #2</p>
+                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt=""> -->
+
+                <!-- Scrollable Thumbnail -->
+                <div class="sd_wrapper">
+                  <div class="sd_box" style="
+                    background-image: url(img/scrolldemo/scroll/aflex_fashion.jpg);
+                  "></div>
+                </div>
+
+                <p>This custom theme is built on "fashionopolsm" template. Also provided section modules(Liquid) to
+                  allow designers to fine-tune in theme editor.</p>
+
                 <ul class="list-inline text-left">
-                  <li>CMS: Shopify</li>
+                  <h5>Technology:</h5>
+                  <li>Shopify</li>
+                  <li>SASS, HTML</li>
                   <li>Base Template: "Fashionopolism"</li>
-                  <li>Liquid Node.js Html Sass</li>
-                  <li><a href="https://vzine-f001.myshopify.com/" target="_blank">Demo Store</a></li>
-                  <li><a href="https://aflexusa.com/" target="_blank">Aflex Live Site</a></li>
+                  <li>Liquid, Theme Kit, Node.js</li>
                 </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                <a class="btn btn-primary" href="https://vzine-f001.myshopify.com/" target="_blank">Demo Site</a>
+                <a class="btn btn-primary" href="https://aflexusa.com/" target="_blank">Aflex Live</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
-                  Close Project</button>
+                  Close
+                </button>
+
               </div>
             </div>
           </div>
@@ -560,7 +662,7 @@ require 'recaptcha/constant.php';
   </div>
 
   <!--
-      MODAL POPUP 5
+      MODAL POPUP
       LOVEUSA
   -->
   <div class="portfolio-modal modal fade" id="modalpopup_lua" tabindex="-1" role="dialog" aria-hidden="true">
@@ -577,25 +679,34 @@ require 'recaptcha/constant.php';
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Love USA Apparel</h2>
-                <p class="item-intro text-muted">Apparel Ecommerce</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                <p class="item-intro text-muted">eCommerce Patriotic Clothing</p>
+
+                <!-- Scrollable Thumbnail -->
+                <div class="sd_wrapper">
+                  <div class="sd_box" style="
+                    background-image: url(img/scrolldemo/scroll/loveusa.jpg);
+                  "></div>
+                </div>
+
                 <p>
-                  custome template: provide customiabe liquid snippets
-                  liquid html: provide webmaster modules to update products, images, homepage layout
-
-                  base template: District
-
+                  This custom theme is built on "District" template. Also provided section modules(Liquid) to allow
+                  designers to fine-tune in theme editor.
                 </p>
                 <ul class="list-inline text-left">
-                  <li>CMS: Shopify</li>
+                  <h5>Technology:</h5>
+                  <li>Shopify</li>
+                  <li>SASS, HTML</li>
                   <li>Base Template: "District"</li>
-                  <li>Liquid Node.js Html Sass</li>
-                  <li><a href="https://www.loveusaapparel.com/" target="_blank">
-                      Live Site</a></li>
+                  <li>Liquid, Theme Kit, Node.js</li>
                 </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
+
+                <a class="btn btn-primary" href="https://www.loveusaapparel.com/" target="_blank">Live Site</a>
+                <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
-                  Close Project</button>
+                  Close
+                </button>
+
+
               </div>
             </div>
           </div>
@@ -604,46 +715,7 @@ require 'recaptcha/constant.php';
     </div>
   </div>
 
-  <!--
-      MODAL POPUP 6
-      WAREHOUSE
-  -->
-  <div class="portfolio-modal modal fade" id="modalpopup_warehouse" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Warehouse App</h2>
-                <p class="item-intro text-muted">Warehouse Management System</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                <p>users from mobile and desktop
-                  tracking worker efficiecyt
-                  help management to make better decision workflow
-                </p>
-                <ul class="list-inline text-left">
-                  <li>react, redux</li>
-                  <li>firebase, firestore</li>
-                  <li><a href="https://warehouse.findvictor.com/" target="_blank">
-                      DEMO</a></li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fa fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- END: Portfolio Modals -->
 

@@ -1,33 +1,41 @@
-(function($) {
+(function ($) {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    if (
+      location.pathname.replace(/^\//, "") ==
+        this.pathname.replace(/^\//, "") &&
+      location.hostname == this.hostname
+    ) {
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
       if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top - 54,
+          },
+          1000,
+          "easeInOutExpo"
+        );
         return false;
       }
     }
   });
 
   // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
+  $(".js-scroll-trigger").click(function () {
+    $(".navbar-collapse").collapse("hide");
   });
 
   // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 56
+  $("body").scrollspy({
+    target: "#mainNav",
+    offset: 56,
   });
 
   // Collapse Navbar
-  var navbarCollapse = function() {
+  var navbarCollapse = function () {
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {
@@ -40,34 +48,36 @@
   $(window).scroll(navbarCollapse);
 
   // Hide navbar when modals trigger
-  $('.portfolio-modal').on('show.bs.modal', function(e) {
+  $(".portfolio-modal").on("show.bs.modal", function (e) {
     $(".navbar").addClass("d-none");
-  })
-  $('.portfolio-modal').on('hidden.bs.modal', function(e) {
+  });
+  $(".portfolio-modal").on("hidden.bs.modal", function (e) {
     $(".navbar").removeClass("d-none");
-  })
-
+  });
 
   //===========================================
-  // vicmod: mixitup gallery
+  // vicmod: mixitup gallery, for "filter_gallery"'s content boxes
   //===========================================
-  var containerEl = document.querySelector('.mixitup_content');
+  var containerEl = document.querySelector(".mixitup_content");
   var mixer;
-  if(containerEl) { /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
-    mixer = mixitup(containerEl);
+  if (containerEl) {
+    /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
+
+    mixer = mixitup(containerEl, {
+      selectors: {
+        control: "[data-mixitup-control]", // BUGFIX: mixitup conflicts w/ bootstrap modal REF: https://stackoverflow.com/a/42454198/5844090
+      },
+    });
   }
 
-
-
   //===========================================
-  // vicmod: filter gallery menu
+  // vicmod: filter gallery menu, for "filter_gallery"'s menu animation
   //===========================================
-  $("#gallery_menu ul li").on("click", function(event){
+  $("#gallery_menu ul li").on("click", function (event) {
     event.preventDefault();
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
-  })
-
+    $(this).siblings().removeClass("active");
+    $(this).addClass("active");
+  });
 
   //===========================================
   // vicmod: progressbar
@@ -75,54 +85,50 @@
 
   /* TRIGGER PROGRESS-BAR       | ref: demo_1: waypoint04.html*/
   var waypoint_progressbar = new Waypoint({
-    element: document.getElementById('progress-bar'),
-    handler: function() {
+    element: document.getElementById("progress-bar"),
+    handler: function () {
       var duration = 0;
       var elements = $(".fill");
-      elements.each(function() {
-        duration = 1 + (Math.floor(Math.random() * 20) / 10);  /* duration + random 0~1.9  */
+      elements.each(function () {
+        duration =
+          1 +
+          Math.floor(Math.random() * 20) / 10; /* duration + random 0~1.9  */
         var attr = duration.toString() + "s";
         $(this).css({
           /*animation: `animate-positive ${duration}s`,*/
           animation: "animate-positive " + attr,
-          opacity: "1"
+          opacity: "1",
         });
       }); // .each
-    }
-  })
+    },
+  });
 
   /* RESET PROGRESS-BAR ONCE REACH BOTTOM       | ref: demo_1: waypoint04.html*/
   var waypoint_reset_progressbar = new Waypoint({
-    element: document.getElementById('page-top'), /* body's ID */
-    handler: function(direction) {
-      if (direction == 'up'){
-        $('.fill').css({
-          animation: '',
-          opacity: "0"
+    element: document.getElementById("page-top") /* body's ID */,
+    handler: function (direction) {
+      if (direction == "up") {
+        $(".fill").css({
+          animation: "",
+          opacity: "0",
         });
       }
     },
-    offset: 'bottom-in-view'     /* ref: http://imakewebthings.com/waypoints/api/offset-option/#bottom-in-view */
-  })
+    offset:
+      "bottom-in-view" /* ref: http://imakewebthings.com/waypoints/api/offset-option/#bottom-in-view */,
+  });
 
   /* RESET PROGRESS-BAR ONCE REACH TOP */
   var waypoint_reset_progressbar_2 = new Waypoint({
-    element: document.getElementById('page-top'), /* body's ID */
-    handler: function(direction) {
-      if (direction == 'up') {
-        $('.fill').css({
-          animation: '',
-          opacity: "0"
+    element: document.getElementById("page-top") /* body's ID */,
+    handler: function (direction) {
+      if (direction == "up") {
+        $(".fill").css({
+          animation: "",
+          opacity: "0",
         });
       } // if
     },
-    offset: -100
-  })
-
-
-
-
-
-
-
+    offset: -100,
+  });
 })(jQuery); // End of use strict

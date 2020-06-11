@@ -728,7 +728,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   height: 262px;
   background-size: cover;
   border: 5px solid #fff;
-  transition: 1s;
+  transition: 5s;
   background-position: top;
 }
 

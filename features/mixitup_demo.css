@@ -1,0 +1,10 @@
+.category-a,
+.category-b,
+.category-c {
+  width: 200px;
+  height: 200px;
+  /* background: yellow; */
+  background: #cddc39;
+  /* border: 20px solid white; */
+  margin: 0.5rem;
+}
