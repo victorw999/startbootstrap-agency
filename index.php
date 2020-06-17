@@ -439,7 +439,7 @@ require 'recaptcha/constant.php';
                 <br>
                 <ul class="list-inline text-left">
                   <h5>Features:</h5>
-                  <li>Track workers task duration</li>
+                  <li>Worker productivity tracking</li>
                   <li>Realtime inspection by supervisor</li>
                   <li>Realtime inventory alert </li>
                   <li>Worker efficiency report </li>
