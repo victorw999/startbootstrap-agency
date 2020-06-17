@@ -611,6 +611,13 @@ section#contact .section-heading {
   color: #fff;
 }
 
+section#contact .section-subheading.vic_email {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 section#contact .form-group {
   margin-bottom: 25px;
 }
@@ -657,6 +664,16 @@ section#contact :-ms-input-placeholder {
   font-weight: 700;
   color: #ced4da;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+section#contact #sendMessageButton {
+  background-color: #d9b73b !important;
+  border-color: #d9b73b !important;
+}
+
+section#contact #sendMessageButton:active, section#contact #sendMessageButton:focus, section#contact #sendMessageButton:hover {
+  background-color: #dfca7f !important;
+  border-color: white !important;
 }
 
 footer {
@@ -799,7 +816,8 @@ section#filter_gallery .filter-wrap .filter {
 /* width for icons */
 section#filter_gallery #gallery_menu.wrapper {
   position: relative;
-  margin-bottom: 75px;
+  margin-bottom: 4rem;
+  margin-top: 3rem;
 }
 
 section#filter_gallery #gallery_menu.wrapper p {
@@ -1231,4 +1249,33 @@ section#email-me .section-heading {
 
 .letter-image:hover .shadow {
   width: 250px;
+}
+
+#about p#self-intro {
+  font-size: 1.3rem;
+}
+
+#about p#self-intro .greeting,
+#about p#self-intro .title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#about p#self-intro .greeting {
+  color: #45a2da;
+}
+
+#about p#self-intro .title {
+  color: #8eb4a7;
+}
+
+.intro-text .view_my_work.btn {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.intro-text .view_my_work.btn:active, .intro-text .view_my_work.btn:focus, .intro-text .view_my_work.btn:hover {
+  background-color: #d9b73b !important;
+  border-color: #d9b73b !important;
 }

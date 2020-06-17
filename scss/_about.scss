@@ -1,0 +1,17 @@
+#about {
+  p#self-intro {
+    font-size: 1.3rem;
+    .greeting,
+    .title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .greeting {
+      color: #45a2da;
+    }
+    .title {
+      color: #8eb4a7;
+    }
+  } //self-intro
+} // #about

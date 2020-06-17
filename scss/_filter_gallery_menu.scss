@@ -1,9 +1,9 @@
 // menu hovering animation
 /* width for icons */
-$dec_amt : 1rem;
-$w_sm : 5.1rem;
+$dec_amt: 1rem;
+$w_sm: 5.1rem;
 // $w_iphone6plus : $w_sm - ( 1 * $dec_amt) ;
-$w_iphone6 : 4rem;
+$w_iphone6: 4rem;
 // $w_iphone5 : $w_sm - ( 3 * $dec_amt) ;
 // xs       < 575px
 // ip6plus  < 414
@@ -23,7 +23,8 @@ section#filter_gallery {
       }
       position: relative;
       // height: 10rem;
-      margin-bottom: 75px;
+      margin-bottom: 4rem;
+      margin-top: 3rem;
     } // .wrapper
     ul {
       position: absolute;
@@ -50,7 +51,9 @@ section#filter_gallery {
         } //.active
 
         a {
-          &:active, &:focus, &:hover {     
+          &:active,
+          &:focus,
+          &:hover {
           }
 
           // outline: 2; //remove dotted line
@@ -63,9 +66,6 @@ section#filter_gallery {
           color: inherit;
           font-weight: 800;
         } //a
-
-
-
       } //li
 
       @for $i from 1 through 5 {
@@ -90,16 +90,15 @@ section#filter_gallery {
     } // .slide
   } //#gallery_menu
 
-
-
-
-  @include media-breakpoint-down(md){
-    #gallery_menu{
+  @include media-breakpoint-down(md) {
+    #gallery_menu {
       $width: 110px;
-      ul{
+      ul {
         li {
           width: $width;
-          a{padding: 20px 5px;}
+          a {
+            padding: 20px 5px;
+          }
         }
         @for $i from 1 through 5 {
           .active:nth-child(#{$i}) ~ .slide {
@@ -107,31 +106,42 @@ section#filter_gallery {
             opacity: 1;
           }
         }
-      }// ul
-      .slide { width: $width; }
-    }// #gallery_menu
-  }//@include media-breakpoint-only(md)
+      } // ul
+      .slide {
+        width: $width;
+      }
+    } // #gallery_menu
+  } //@include media-breakpoint-only(md)
 
-  @include media-breakpoint-up(md){
-    #gallery_menu{
+  @include media-breakpoint-up(md) {
+    #gallery_menu {
       li {
-        .icon_svg{display: none;}
-        .textlink{display: block;}
+        .icon_svg {
+          display: none;
+        }
+        .textlink {
+          display: block;
+        }
       }
     }
-  }// @include media-breakpoint-up(xs)
+  } // @include media-breakpoint-up(xs)
 
-
-
-  @include media-breakpoint-down(sm){
-    #gallery_menu{
+  @include media-breakpoint-down(sm) {
+    #gallery_menu {
       $width: $w_sm;
-      ul{
+      ul {
         li {
           width: $width;
-          a {padding: 0px;}
-          .icon_svg{display: block; font-size: $w_sm;}
-          .textlink{display: none;}
+          a {
+            padding: 0px;
+          }
+          .icon_svg {
+            display: block;
+            font-size: $w_sm;
+          }
+          .textlink {
+            display: none;
+          }
         }
         @for $i from 1 through 5 {
           .active:nth-child(#{$i}) ~ .slide {
@@ -139,11 +149,12 @@ section#filter_gallery {
             opacity: 1;
           }
         }
-      }// ul
-      .slide { width: $width; }
-    }// #gallery_menu
+      } // ul
+      .slide {
+        width: $width;
+      }
+    } // #gallery_menu
   }
-
 
   // @media (max-width: #{$iphone6plus + 1px}) {
   //   #gallery_menu{
@@ -164,16 +175,15 @@ section#filter_gallery {
   //   }// #gallery_menu
   // }//$iphone6plus
 
-
-
-
   @media (max-width: #{$iphone6 + 1px}) {
-    #gallery_menu{
+    #gallery_menu {
       $width: $w_iphone6;
-      ul{
+      ul {
         li {
           width: $width;
-          .icon_svg{font-size: $w_iphone6;}
+          .icon_svg {
+            font-size: $w_iphone6;
+          }
         }
         @for $i from 1 through 5 {
           .active:nth-child(#{$i}) ~ .slide {
@@ -181,12 +191,12 @@ section#filter_gallery {
             opacity: 1;
           }
         }
-      }// ul
-      .slide { width: $width; }
-    }// #gallery_menu
-  }//$iphone6
-
-
+      } // ul
+      .slide {
+        width: $width;
+      }
+    } // #gallery_menu
+  } //$iphone6
 
   //
   // @media (max-width: #{$iphone5 + 1px}) {
@@ -207,6 +217,4 @@ section#filter_gallery {
   //     .slide { width: $width; }
   //   }// #gallery_menu
   // }//$iphone5
-
-
 } //section#filter_gallery

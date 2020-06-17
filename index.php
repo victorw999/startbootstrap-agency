@@ -59,7 +59,7 @@ require 'recaptcha/constant.php';
         <ul class="navbar-nav text-uppercase ml-auto">
 
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#filter_gallery">Portfolio</a>
+            <a class="nav-link js-scroll-trigger" href="#filter_gallery">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -81,12 +81,49 @@ require 'recaptcha/constant.php';
     <!-- MAIN WELCOME MSG -->
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Welcome!</div>
-        <div class="intro-heading text-uppercase">AKWA 20.05.09 b deploy bluehost</div>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        <!-- <div class="intro-lead-in">Welcome!</div> -->
+        <!-- <div class="intro-heading text-uppercase">AKWA 20.05.09 b deploy bluehost</div> -->
+
+
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1 ">
+            <div class="intro-heading">Hi, I'm Victor Wong, Front-End Developer.</div>
+            <!-- <div class="intro-heading"> Hikde, hsm hefsf absce. s'm adf efh-dsf dluopselgaug.</div> -->
+
+          </div>
+        </div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger view_my_work" href="#filter_gallery">View my
+          work</a>
       </div>
     </div>
   </header>
+
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">About</h2>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3 ">
+          <p id="self-intro">
+            <span class='greeting'>Hi, I'm Victor.</span>
+            I'm a <span class="title">Front-End Developer</span> for
+            Pacico in City of Industry, CA.
+            I have a passion of design and programming, and an addiction to the rush when a bug got resolved after
+            hunting it for days.
+            So what's a good website? I think it should be minimalist, intuitive, and functional.
+            And If I can achieve all 3 with clean codes, then I'd get a good night sleep :)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
 
   <!-- FILTER GALLERY -->
@@ -94,8 +131,9 @@ require 'recaptcha/constant.php';
     <div class="flex container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Filter Gallery</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Projects</h2>
+          <h3></h3>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
 
@@ -250,8 +288,8 @@ require 'recaptcha/constant.php';
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">hello@findvictor.com</h3>
+          <h2 class="section-heading text-uppercase">Contact</h2>
+          <h3 class="section-subheading text-white vic_email">hello@findvictor.com</h3>
         </div>
       </div>
       <div class="row">

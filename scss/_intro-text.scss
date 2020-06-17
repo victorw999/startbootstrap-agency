@@ -1,0 +1,17 @@
+.intro-text {
+  .intro-heading {
+    // font-size: 4rem;
+  }
+
+  .view_my_work.btn {
+    background-color: transparent;
+    border: 2px solid white;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $vic_action !important;
+      border-color: $vic_action !important;
+    }
+  }
+}
