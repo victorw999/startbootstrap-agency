@@ -415,8 +415,8 @@ require 'recaptcha/constant.php';
                 <h2 class="text-uppercase">Warehouse App</h2>
                 <p class="item-intro text-muted">
                   Warehouse Management System - A Realtime react web app for coordinate and streamline warehouse
-                  shipping.</p>
-                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt=""> -->
+                  shipping.
+                </p>
                 <!--
                   VIDEO
                 -->
@@ -426,14 +426,17 @@ require 'recaptcha/constant.php';
                   border: none !important;
                 }
                 </style>
-                <iframe id="iframe_vid_warehouse" width="560" height="315"
-                  src="https://www.youtube.com/embed/xh8hlcQzXGM?rel=0;&autoplay=1" frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                <div class="video-container">
+                  <iframe id="iframe_vid_warehouse" width="560" height="315"
+                    src="https://www.youtube.com/embed/xh8hlcQzXGM?rel=0;&autoplay=1" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                  </iframe>
+                </div>
+
                 <!--
                   END VIDEO
                 -->
-
+                <br>
                 <ul class="list-inline text-left">
                   <h5>Features:</h5>
                   <li>Track workers task duration</li>
@@ -482,7 +485,6 @@ require 'recaptcha/constant.php';
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">akwa.com</h2>
                 <p class="item-intro text-muted">Wholesale Made in USA Apparel </p>
-                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt=""> -->
 
                 <!--
                   VIDEO
@@ -493,10 +495,12 @@ require 'recaptcha/constant.php';
                   border: none !important;
                 }
                 </style>
-                <iframe id="iframe_vid_akwa" width="560" height="315"
-                  src="https://www.youtube.com/embed/JtNEsZ8G8Vw?rel=0;&autoplay=1" frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                <div class="video-container">
+                  <iframe id="iframe_vid_akwa" width="560" height="315"
+                    src="https://www.youtube.com/embed/JtNEsZ8G8Vw?rel=0;&autoplay=1" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                  </iframe>
+                </div>
                 <!--
                   END VIDEO
                 -->
