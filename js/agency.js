@@ -63,7 +63,7 @@
   var mixer;
 
   /**
-   * define func for reading URL
+   *  functions for reading URL
    */
   var targetSelector = ".mix";
 
@@ -87,6 +87,11 @@
             hIndex === -1 ? urlString.length : hIndex
           );
 
+    // if there's no paramter passing in, then default is show all projects ".vicproj"
+    // if (paramSubstring === "") {
+    //   return ".vicproj";
+    // }
+
     // array contains parameters,
     var url = paramSubstring.split("&");
 
@@ -107,7 +112,6 @@
    */
   function setParams(state) {
     var selector = state.activeFilter.selector;
-    // var newHash = "#" + selector.replace(/^\./g, "");
     var newParam = "?filter=" + selector.replace(/^\./g, "");
 
     if (selector === targetSelector && getSelectorFromParam()) {
@@ -131,6 +135,7 @@
    */
 
   if (containerEl) {
+    console.log("getSelectorFromParam() -> ", getSelectorFromParam());
     /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
 
     // REF:  Reading a URL hash and mapping it into a DOM selector
@@ -147,8 +152,9 @@
         // BUGFIX: mixitup conflicts w/ bootstrap modal REF: https://stackoverflow.com/a/42454198/5844090
       },
       load: {
-        filter: getSelectorFromParam(),
         // Ensure that the mixer's initial filter matches the URL on startup
+        // if func returns false, then set filter to default
+        filter: getSelectorFromParam() ? getSelectorFromParam() : ".vicproj",
       },
       callbacks: {
         onMixEnd: setParams,
