@@ -58,14 +58,101 @@
   //===========================================
   // vicmod: mixitup gallery, for "filter_gallery"'s content boxes
   //===========================================
+
   var containerEl = document.querySelector(".mixitup_content");
   var mixer;
+
+  /**
+   * define func for reading URL
+   */
+  var targetSelector = ".mix";
+
+  //use ? instead of #, get the paramter from ? to #
+  function getSelectorFromParam() {
+    var urlString = window.location.href;
+    var param = "filter";
+
+    // get substring between ? and #
+    var qIndex = urlString.lastIndexOf("?"); // question mark index
+    var hIndex = urlString.lastIndexOf("#"); // hash index
+
+    // parse parameters from ? to #,
+    // if no #, then parse from ? to end
+    // if no ?, then substring will be empty
+    var paramSubstring =
+      qIndex === -1
+        ? ""
+        : urlString.substring(
+            qIndex + 1,
+            hIndex === -1 ? urlString.length : hIndex
+          );
+
+    // array contains parameters,
+    var url = paramSubstring.split("&");
+
+    for (var i = 0; i < url.length; i++) {
+      var params = url[i].split("=");
+      var selector = targetSelector; // default selector
+      if (params[0] == param) {
+        selector = "." + params[1];
+        return selector;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * vicmod:
+   * set url paramaters after ?
+   */
+  function setParams(state) {
+    var selector = state.activeFilter.selector;
+    // var newHash = "#" + selector.replace(/^\./g, "");
+    var newParam = "?filter=" + selector.replace(/^\./g, "");
+
+    if (selector === targetSelector && getSelectorFromParam()) {
+      // Equivalent to filter "all", remove the hash
+      history.pushState(null, document.title, window.location.pathname); // or history.replaceState()
+    } else if (
+      newParam !== getSelectorFromParam() &&
+      selector !== targetSelector
+    ) {
+      // Change the hash
+      history.pushState(
+        null,
+        document.title,
+        window.location.pathname + newParam
+      ); // or history.replaceState()
+    }
+  }
+
+  /**
+   * END: define func for reading URL
+   */
+
   if (containerEl) {
     /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
 
+    // REF:  Reading a URL hash and mapping it into a DOM selector
+    // https://www.kunkalabs.com/tutorials/filtering-and-sorting-on-load/
+
+    // To be able to read URL, below codes are modified based on this demo
+    // https://demos.kunkalabs.com/mixitup/filtering-by-url/#blue
+
+    // Instantiate and configure the mixer
     mixer = mixitup(containerEl, {
       selectors: {
-        control: "[data-mixitup-control]", // BUGFIX: mixitup conflicts w/ bootstrap modal REF: https://stackoverflow.com/a/42454198/5844090
+        target: targetSelector,
+        control: "[data-mixitup-control]",
+        // BUGFIX: mixitup conflicts w/ bootstrap modal REF: https://stackoverflow.com/a/42454198/5844090
+      },
+      load: {
+        filter: getSelectorFromParam(),
+        // Ensure that the mixer's initial filter matches the URL on startup
+      },
+      callbacks: {
+        onMixEnd: setParams,
+        // Call the setHash() method at the end of each operation
       },
     });
   }
