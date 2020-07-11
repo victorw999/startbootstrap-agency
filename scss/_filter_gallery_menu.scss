@@ -35,7 +35,7 @@ section#filter_gallery {
       //background: #000;
       //border-radius: 30px;
       overflow: hidden;
-      //box-shadow: 0 0 0 1px #333; /* menu border */
+
       margin: 0;
       padding: 0;
 
@@ -154,26 +154,7 @@ section#filter_gallery {
         width: $width;
       }
     } // #gallery_menu
-  }
-
-  // @media (max-width: #{$iphone6plus + 1px}) {
-  //   #gallery_menu{
-  //     $width: $w_iphone6plus;
-  //     ul{
-  //       li {
-  //         width: $width;
-  //         .icon_svg{font-size: $w_iphone6plus;}
-  //       }
-  //       @for $i from 1 through 5 {
-  //         .active:nth-child(#{$i}) ~ .slide {
-  //           left: $width * ($i - 1);
-  //           opacity: 1;
-  //         }
-  //       }
-  //     }// ul
-  //     .slide { width: $width; }
-  //   }// #gallery_menu
-  // }//$iphone6plus
+  } // media-breakpoint-down(sm)
 
   @media (max-width: #{$iphone6 + 1px}) {
     #gallery_menu {
@@ -197,24 +178,4 @@ section#filter_gallery {
       }
     } // #gallery_menu
   } //$iphone6
-
-  //
-  // @media (max-width: #{$iphone5 + 1px}) {
-  //   #gallery_menu{
-  //     $width: $w_iphone5;
-  //     ul{
-  //       li {
-  //         width: $width;
-  //         .icon_svg{font-size: $w_iphone5;}
-  //       }
-  //       @for $i from 1 through 5 {
-  //         .active:nth-child(#{$i}) ~ .slide {
-  //           left: $width * ($i - 1);
-  //           opacity: 1;
-  //         }
-  //       }
-  //     }// ul
-  //     .slide { width: $width; }
-  //   }// #gallery_menu
-  // }//$iphone5
 } //section#filter_gallery

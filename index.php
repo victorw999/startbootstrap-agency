@@ -139,19 +139,17 @@ require 'recaptcha/constant.php';
 
       <!-- #2 https://codepen.io/victorw999/pen/mggqPM -->
       <div id="gallery_menu" class="wrapper">
-        <ul class="">
-          <li data-filter=".vicproj" data-mixitup-control class="active">
+        <ul class="" id='menu_items'>
+          <li data-filter=".vicproj" data-mixitup-control class="active all">
             <a href="#"><span class="textlink">ALL</span> <span class="icon_svg icon-all"></span> </a> </li>
           <li data-filter=".react" data-mixitup-control>
             <a href="#"><span class="textlink">REACT</span>
               <span class="icon_svg icon-react"></span></a></li>
-          <li data-filter=".shopify" data-mixitup-control>
+          <li data-filter=".shopify" data-mixitup-control value='puppy'>
             <a href="#"><span class="textlink">SHOPIFY</span> <span class="icon_svg icon-shopify "></span> </a></li>
           <li data-filter=".magento" data-mixitup-control>
             <a href="#"><span class="textlink">MAGENTO</span> <span class="icon_svg icon-magento"></span> </a></li>
 
-          <!-- <li data-filter=".bootstrap">
-            <a href="#"><span class="textlink">BOOTSTRAP</span> <span class="icon_svg icon-bootstrap"></span> </a></li> -->
           <li class="slide"></li>
         </ul>
       </div> <!-- #gallery_menu -->

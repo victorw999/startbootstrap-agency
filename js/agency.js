@@ -65,7 +65,8 @@
   /**
    *  functions for reading URL
    */
-  var targetSelector = ".mix";
+  // var targetSelector = ".mix";
+  var targetSelector = ".vicproj";
 
   //use ? instead of #, get the paramter from ? to #
   function getSelectorFromParam() {
@@ -107,8 +108,9 @@
   }
 
   /**
-   * vicmod:
-   * set url paramaters after ?
+   * callback function for MixItUp config
+   * this will be called at the end of each operation
+   * this will set URL paramaters after ?
    */
   function setParams(state) {
     var selector = state.activeFilter.selector;
@@ -116,7 +118,8 @@
 
     if (selector === targetSelector && getSelectorFromParam()) {
       // Equivalent to filter "all", remove the hash
-      history.pushState(null, document.title, window.location.pathname); // or history.replaceState()
+      history.pushState(null, document.title, window.location.pathname);
+      // or history.replaceState()
     } else if (
       newParam !== getSelectorFromParam() &&
       selector !== targetSelector
@@ -135,7 +138,6 @@
    */
 
   if (containerEl) {
-    console.log("getSelectorFromParam() -> ", getSelectorFromParam());
     /* check if the element exits on the page ref: https://bit.ly/2JBbDvO */
 
     // REF:  Reading a URL hash and mapping it into a DOM selector
@@ -158,7 +160,7 @@
       },
       callbacks: {
         onMixEnd: setParams,
-        // Call the setHash() method at the end of each operation
+        // Call the setParams() method at the end of each operation
       },
     });
   }
@@ -171,6 +173,33 @@
     $(this).siblings().removeClass("active");
     $(this).addClass("active");
   });
+
+  /**
+   * Initial assign active menu item based on URL
+   *   since filter_gallery's active category could be set by URL
+   *   the menu needs to reflect that, because the default active menu is "all"
+   *   as it's coded in html
+   */
+
+  // get the intended selector from URL
+  var currentURL_cata = getSelectorFromParam().replace(/^\./g, "");
+
+  $("#gallery_menu")
+    .find("li.active")
+    .each(function () {
+      // get current 'active' li
+      var currentActiveMenu = $(this).attr("data-filter").replace(/^\./g, "");
+
+      if (currentActiveMenu !== currentURL_cata) {
+        // remove 'active' from this menu item, if it's not same as URL
+        $(this).removeClass("active");
+
+        // assign 'active' to the item the URL specified
+        $("#gallery_menu")
+          .find("li[data-filter*='." + currentURL_cata + "']")
+          .addClass("active");
+      }
+    });
 
   //===========================================
   // vicmod: progressbar
@@ -224,8 +253,4 @@
     },
     offset: -100,
   });
-
-  //===========================================
-  // vicmod:
-  //===========================================
 })(jQuery); // End of use strict
