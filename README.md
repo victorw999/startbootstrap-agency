@@ -1,8 +1,8 @@
-## portfolio repo
+## Portfolio Website
 
-- My portfolio[findvictor.com](https://findvictor.com) code repo.
+- My portfolio [findvictor.com](https://findvictor.com) codes.
 
-- Build from template: [Agency](https://startbootstrap.com/template-overviews/agency/) is a one page agency portfolio theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+- Template: "Agency", a one page theme created by Start Bootstrap
 
 - Gulp Tasks
   - `gulp` the default task that builds everything
