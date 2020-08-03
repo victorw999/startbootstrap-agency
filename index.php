@@ -451,6 +451,8 @@ require 'recaptcha/constant.php';
                 </ul>
 
                 <a class="btn btn-primary" href="https://warehouse.findvictor.com/" target="_blank">Demo Site</a>
+                <a class="btn btn-secondary" href="https://github.com/victorw999/warehouse_demo"
+                  target="_blank">GitHub</a>
                 <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
                   Close
@@ -632,6 +634,8 @@ require 'recaptcha/constant.php';
                 </ul>
 
                 <a class="btn btn-primary" href="https://vzine.myshopify.com/" target="_blank">Demo Site</a>
+                <a class="btn btn-secondary" href="https://github.com/victorw999/shopify_vzine_aflex_debut"
+                  target="_blank">GitHub</a>
                 <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
                   Close
@@ -686,6 +690,8 @@ require 'recaptcha/constant.php';
                 </ul>
                 <a class="btn btn-primary" href="https://vzine-f001.myshopify.com/" target="_blank">Demo Site</a>
                 <a class="btn btn-primary" href="https://aflexusa.com/" target="_blank">Aflex Live</a>
+                <a class="btn btn-secondary" href="https://github.com/victorw999/shopify_vzine_aflex_debut"
+                  target="_blank">GitHub</a>
                 <button class="btn btn-danger" data-dismiss="modal" type="button">
                   <i class="fa fa-times"></i>
                   Close
